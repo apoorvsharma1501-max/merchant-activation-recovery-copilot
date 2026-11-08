@@ -1,0 +1,728 @@
+{
+  "017c5cf4f4d1266bdb916fb123097ad4c5a51e72c372f13d7b56d0bd29b35347": {
+    "created_utc": "2026-11-08T19:56:52Z",
+    "data": {
+      "english_back_translation": "Hello! We noticed your onboarding is still waiting at the 'Business details' step. Please sign in to your onboarding account and continue from the 'Business details' step. Thank you for choosing to grow your business with us!",
+      "message": "Hello! We noticed your onboarding is still waiting at the 'Business details' step. Please sign in to your onboarding account and continue from the 'Business details' step. Thank you for choosing to grow your business with us!"
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 857,
+      "output_tokens": 156
+    },
+    "user_prompt": "Language: English\nMessage type: friendly reminder (there was no rejection).\nWhere they stopped: the 'Business details' step.\nAsk them to sign in to their onboarding account and continue from the 'Business details' step."
+  },
+  "027a4477b9504c6a9133f6bfdf5b6d2027de34668344e046379423fd7aab736c": {
+    "created_utc": "2026-11-08T19:58:05Z",
+    "data": {
+      "english_back_translation": "Hello! Your onboarding is currently paused at the 'Business details' step. When you get time, please sign in to your onboarding account and continue from the 'Business details' step. Thank you!",
+      "message": "Namaste! Aapka onboarding abhi 'Business details' step par ruka hua hai. Jab aapko time mile, apne onboarding account mein sign in karein aur 'Business details' step se aage continue karein. Dhanyavaad!"
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 861,
+      "output_tokens": 159
+    },
+    "user_prompt": "Language: Hinglish\nMessage type: friendly reminder (there was no rejection).\nWhere they stopped: the 'Business details' step.\nAsk them to sign in to their onboarding account and continue from the 'Business details' step."
+  },
+  "043eabea70b92e5d579a8bc6306ae86d0088e4c49d654e6571fb54fa1751e0a5": {
+    "created_utc": "2026-11-08T19:57:02Z",
+    "data": {
+      "english_back_translation": "Thank you for your interest and for the time you spent on your application. We are sorry, but we are unable to support this business category, so your application has been closed. We truly appreciate you considering us.",
+      "message": "Thank you for your interest and for the time you spent on your application. We are sorry, but we are unable to support this business category, so your application has been closed. We truly appreciate you considering us."
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 836,
+      "output_tokens": 129
+    },
+    "user_prompt": "Language: English\nMessage type: closure.\nSay politely that we are unable to support this business category, so the application has been closed, and thank them. Say nothing else."
+  },
+  "09f052a35b5f5b354667edf79857b5ca766a81f9300eaf75295c53d70f37f467": {
+    "created_utc": "2026-11-08T19:58:29Z",
+    "data": {
+      "english_back_translation": "Hello, your onboarding is paused at the 'KYC documents' step. The ID of the authorised signatory or director was not found, or its details do not match the application. Please upload a valid ID of the authorised signatory and make sure the name and date of birth are the same as in the application. Then sign in to your onboarding account and submit again. Thank you!",
+      "message": "नमस्ते, आपकी ऑनबोर्डिंग 'KYC दस्तावेज़' वाले चरण पर रुकी हुई है। अधिकृत हस्ताक्षरकर्ता या डायरेक्टर का पहचान पत्र नहीं मिला है, या उसकी जानकारी आवेदन से मेल नहीं खाती। कृपया अधिकृत हस्ताक्षरकर्ता का मान्य पहचान पत्र अपलोड करें और ध्यान रखें कि नाम और जन्म तिथि आवेदन जैसी ही हों। फिर अपने ऑनबोर्डिंग खाते में साइन इन करके दोबारा जमा करें। धन्यवाद!"
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 930,
+      "output_tokens": 383
+    },
+    "user_prompt": "Language: Hindi\nMessage type: fix needed to continue onboarding.\nWhere they stopped: the 'KYC docs' step.\nWhat went wrong (approved wording): Authorised signatory or director ID is missing, or the details don't match the application.\nWhat to do (approved wording): Upload a valid ID of the authorised signatory and ensure the name and DOB match the application.\nThen ask them to sign in to their onboarding account and resubmit."
+  },
+  "0a29b1b866cf5802ff97c502ee7029765491aa2b27c4f9467d0ef639f275848a": {
+    "created_utc": "2026-11-08T19:55:34Z",
+    "data": {
+      "english_back_translation": "Hello, your onboarding has paused at the Website/App review step. Your website or app is missing one or more of these: Terms & Conditions, Privacy Policy, Refund/Cancellation Policy or Contact details. Please add all four pages with working links. Then sign in to your onboarding account and resubmit your website address.",
+      "message": "Hello, your onboarding has paused at the Website/App review step. Your website or app is missing one or more of these: Terms & Conditions, Privacy Policy, Refund/Cancellation Policy or Contact details. Please add all four pages with working links. Then sign in to your onboarding account and resubmit your website address."
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 934,
+      "output_tokens": 221
+    },
+    "user_prompt": "Language: English\nMessage type: fix needed to continue onboarding.\nWhere they stopped: the 'Website/App review' step.\nWhat went wrong (approved wording): Website or app lacks Terms & Conditions, Privacy Policy, Refund/Cancellation Policy or Contact details.\nWhat to do (approved wording): Add all four pages with working links and resubmit the website URL.\nThen ask them to sign in to their onboarding account and resubmit."
+  },
+  "0f34dfc01763992baae871c9ba246f7cc78eb66804f0376e93caf7eb69187cd5": {
+    "created_utc": "2026-11-08T19:57:00Z",
+    "data": {
+      "english_back_translation": "Hello! Your onboarding has paused at the 'Bank verification' step. There is nothing to worry about, just sign in to your onboarding account and continue from the 'Bank verification' step. Thank you!",
+      "message": "Namaste! Aapka onboarding 'Bank verification' step par ruka hua hai. Chinta ki koi baat nahi, bas apne onboarding account mein sign in karein aur 'Bank verification' step se aage continue karein. Dhanyavaad!"
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 865,
+      "output_tokens": 173
+    },
+    "user_prompt": "Language: Hinglish\nMessage type: friendly reminder (there was no rejection).\nWhere they stopped: the 'Bank verification' step.\nAsk them to sign in to their onboarding account and continue from the 'Bank verification' step."
+  },
+  "126827e37dd63ea2f664f69924583cdb67938b7f6200356912b02e6f5de6c225": {
+    "created_utc": "2026-11-08T19:58:14Z",
+    "data": {
+      "english_back_translation": "Hello! We would like to remind you that your registration has stopped at the 'Bank verification' step. Please sign in to your onboarding account and continue from the 'Bank verification' step. Thank you!",
+      "message": "வணக்கம்! உங்கள் பதிவு 'Bank verification' படியில் நின்றுள்ளது என்பதை நினைவூட்ட விரும்புகிறோம். தயவுசெய்து உங்கள் onboarding கணக்கில் உள்நுழைந்து, 'Bank verification' படியிலிருந்து தொடருங்கள். நன்றி!"
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 864,
+      "output_tokens": 216
+    },
+    "user_prompt": "Language: Tamil\nMessage type: friendly reminder (there was no rejection).\nWhere they stopped: the 'Bank verification' step.\nAsk them to sign in to their onboarding account and continue from the 'Bank verification' step."
+  },
+  "1709cebeab6edcd1f741f7d83864db6d285830b6dc2b7a8b83cc141e22426252": {
+    "created_utc": "2026-11-08T19:57:13Z",
+    "data": {
+      "english_back_translation": "Hello, your onboarding has paused at the 'Website/App review' step. We could not review your website because it is down, under construction, or needs a login to see products and prices. Please make your website open to everyone, with your products, prices and contact details clearly visible. Then sign in to your onboarding account and resubmit.",
+      "message": "Hello, your onboarding has paused at the 'Website/App review' step. We could not review your website because it is down, under construction, or needs a login to see products and prices. Please make your website open to everyone, with your products, prices and contact details clearly visible. Then sign in to your onboarding account and resubmit."
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 922,
+      "output_tokens": 209
+    },
+    "user_prompt": "Language: English\nMessage type: fix needed to continue onboarding.\nWhere they stopped: the 'Website/App review' step.\nWhat went wrong (approved wording): Website is down, under construction, or needs a login to view products and prices.\nWhat to do (approved wording): Make the website publicly accessible with products, prices and contact details visible, then resubmit.\nThen ask them to sign in to their onboarding account and resubmit."
+  },
+  "212dd8b0f30da76c0137f50c0805bea1816754f482eafdf935630baafe3024de": {
+    "created_utc": "2026-11-08T19:55:16Z",
+    "data": {
+      "english_back_translation": "Hello! We would like to remind you that your registration has stopped at the 'KYC docs' step. Please sign in to your onboarding account and continue from the 'KYC docs' step. Thank you!",
+      "message": "வணக்கம்! உங்கள் பதிவு 'KYC docs' படியில் நின்றுள்ளது என்பதை நினைவூட்ட விரும்புகிறோம். தயவுசெய்து உங்கள் onboarding கணக்கில் உள்நுழைந்து, 'KYC docs' படியிலிருந்து தொடருங்கள். நன்றி!"
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 864,
+      "output_tokens": 216
+    },
+    "user_prompt": "Language: Tamil\nMessage type: friendly reminder (there was no rejection).\nWhere they stopped: the 'KYC docs' step.\nAsk them to sign in to their onboarding account and continue from the 'KYC docs' step."
+  },
+  "22d57513aff48f22d2218ca137314363da8ab22364e451bdaae7ff8002e20e73": {
+    "created_utc": "2026-11-08T19:58:02Z",
+    "data": {
+      "english_back_translation": "Hello. We regret to inform you that we are unable to support your business category. Therefore, your application has been closed. Thank you very much for choosing us.",
+      "message": "வணக்கம். உங்கள் வணிக வகையை எங்களால் ஆதரிக்க இயலவில்லை என்பதைத் தெரிவிக்க வருந்துகிறோம். எனவே உங்கள் விண்ணப்பம் மூடப்பட்டுள்ளது. எங்களைத் தேர்ந்தெடுத்ததற்கு மிக்க நன்றி."
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 839,
+      "output_tokens": 207
+    },
+    "user_prompt": "Language: Tamil\nMessage type: closure.\nSay politely that we are unable to support this business category, so the application has been closed, and thank them. Say nothing else."
+  },
+  "2d020d2872e0a6fe11430dddb4bd6615563143e10fa1a78c9cdd8219da9ee120": {
+    "created_utc": "2026-11-08T19:55:10Z",
+    "data": {
+      "english_back_translation": "Hello, your application has stopped at the 'KYC documents' step. The name written on the PAN card is different from the business name you entered. Please upload the PAN of the business (or owner) whose name matches the application, or correct the business name to match the PAN. After that, sign in to your onboarding account and submit the application again. Thank you!",
+      "message": "नमस्ते, आपका आवेदन 'KYC दस्तावेज़' वाले चरण पर रुका हुआ है। PAN कार्ड पर लिखा नाम आपके द्वारा भरे गए व्यवसाय के नाम से अलग है। कृपया उस व्यवसाय (या मालिक) का PAN अपलोड करें जिसका नाम आवेदन से मेल खाता हो, या व्यवसाय का नाम PAN के अनुसार सही कर दें। इसके बाद अपने ऑनबोर्डिंग खाते में साइन इन करके आवेदन दोबारा जमा करें। धन्यवाद!"
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 931,
+      "output_tokens": 351
+    },
+    "user_prompt": "Language: Hindi\nMessage type: fix needed to continue onboarding.\nWhere they stopped: the 'KYC docs' step.\nWhat went wrong (approved wording): The name on the PAN card is different from the business name entered.\nWhat to do (approved wording): Upload the PAN of the business (or proprietor) whose name matches the application, or correct the business name to match the PAN.\nThen ask them to sign in to their onboarding account and resubmit."
+  },
+  "33cafbb5fee7aa12d8ae5da0f9bbcdd91ec7b81f0a05cbe01eec5ba2136c60dd": {
+    "created_utc": "2026-11-08T19:55:23Z",
+    "data": {
+      "english_back_translation": "Hello, your application has stopped at the 'KYC documents' step. The ID proof of the authorised signatory or director is missing, or the details in it do not match the application. Please upload a valid ID proof of the authorised signatory; make sure the name and date of birth on it are the same as in the application. Then sign in to your onboarding account and submit again. Thank you!",
+      "message": "வணக்கம், உங்கள் விண்ணப்பம் 'KYC ஆவணங்கள்' படியில் நின்றுள்ளது. அங்கீகரிக்கப்பட்ட கையொப்பமிடுபவர் அல்லது இயக்குநரின் அடையாளச் சான்று இல்லை, அல்லது அதிலுள்ள விவரங்கள் விண்ணப்பத்துடன் பொருந்தவில்லை. அங்கீகரிக்கப்பட்ட கையொப்பமிடுபவரின் செல்லுபடியான அடையாளச் சான்றைப் பதிவேற்றுங்கள்; அதிலுள்ள பெயரும் பிறந்த தேதியும் விண்ணப்பத்தில் உள்ளதைப் போலவே இருப்பதை உறுதிசெய்யுங்கள். பிறகு உங்கள் onboarding கணக்கில் உள்நுழைந்து மீண்டும் சமர்ப்பியுங்கள். நன்றி!"
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 930,
+      "output_tokens": 504
+    },
+    "user_prompt": "Language: Tamil\nMessage type: fix needed to continue onboarding.\nWhere they stopped: the 'KYC docs' step.\nWhat went wrong (approved wording): Authorised signatory or director ID is missing, or the details don't match the application.\nWhat to do (approved wording): Upload a valid ID of the authorised signatory and ensure the name and DOB match the application.\nThen ask them to sign in to their onboarding account and resubmit."
+  },
+  "35bab2cfb1e346df17c47c0b1a6aafe5e4d2ca4067d40226cc5db22e108f83f0": {
+    "created_utc": "2026-11-08T19:56:24Z",
+    "data": {
+      "english_back_translation": "Hello, thank you for continuing your onboarding with us. At the KYC docs step, the image or PDF you uploaded is blurred, cropped, or password-protected. Please re-upload a clear, full-page colour scan in PDF, JPG or PNG format, under 5 MB. Simply sign in to your onboarding account and resubmit the document.",
+      "message": "Hello, thank you for continuing your onboarding with us. At the KYC docs step, the image or PDF you uploaded is blurred, cropped, or password-protected. Please re-upload a clear, full-page colour scan in PDF, JPG or PNG format, under 5 MB. Simply sign in to your onboarding account and resubmit the document."
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 933,
+      "output_tokens": 243
+    },
+    "user_prompt": "Language: English\nMessage type: fix needed to continue onboarding.\nWhere they stopped: the 'KYC docs' step.\nWhat went wrong (approved wording): The uploaded image or PDF is blurred, cropped, or password-protected.\nWhat to do (approved wording): Re-upload a clear, full-page colour scan in PDF/JPG/PNG under 5 MB.\nThen ask them to sign in to their onboarding account and resubmit."
+  },
+  "3883d01694eb0767b845d922d3ff011161ceadd231d84a547c49f19943d2c9e5": {
+    "created_utc": "2026-11-08T19:55:26Z",
+    "data": {
+      "english_back_translation": "Hello! Your onboarding has paused at the 'Bank verification' step. Please sign in to your onboarding account and continue from the 'Bank verification' step. Thank you!",
+      "message": "नमस्ते! आपका ऑनबोर्डिंग 'Bank verification' स्टेप पर रुका हुआ है। कृपया अपने ऑनबोर्डिंग अकाउंट में साइन इन करें और 'Bank verification' स्टेप से आगे बढ़ें। धन्यवाद!"
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 864,
+      "output_tokens": 187
+    },
+    "user_prompt": "Language: Hindi\nMessage type: friendly reminder (there was no rejection).\nWhere they stopped: the 'Bank verification' step.\nAsk them to sign in to their onboarding account and continue from the 'Bank verification' step."
+  },
+  "4270d105e9b00c004db3d192213b3fc972265b4200d507071f069f20255d4974": {
+    "created_utc": "2026-11-08T19:58:51Z",
+    "data": {
+      "english_back_translation": "Hello. Sorry, we are unable to provide service for your business category. So your application has been closed. Thank you for choosing us.",
+      "message": "ನಮಸ್ಕಾರ. ಕ್ಷಮಿಸಿ, ನಿಮ್ಮ ವ್ಯಾಪಾರದ ವರ್ಗಕ್ಕೆ ನಾವು ಸೇವೆ ನೀಡಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ. ಆದ್ದರಿಂದ ನಿಮ್ಮ ಅರ್ಜಿಯನ್ನು ಮುಚ್ಚಲಾಗಿದೆ. ನಮ್ಮನ್ನು ಆಯ್ಕೆ ಮಾಡಿದ್ದಕ್ಕೆ ಧನ್ಯವಾದಗಳು."
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 839,
+      "output_tokens": 336
+    },
+    "user_prompt": "Language: Kannada\nMessage type: closure.\nSay politely that we are unable to support this business category, so the application has been closed, and thank them. Say nothing else."
+  },
+  "45dd449c6116d51d9bcba9e0e9c22935cd87155b9af9aa0b31e86099835b6710": {
+    "created_utc": "2026-11-08T19:55:48Z",
+    "data": {
+      "english_back_translation": "Hello, your onboarding has paused at the 'Website/App review' step. The business category you selected differs from what your website actually sells. Please select the correct category, or share a short note and evidence explaining your business model for a second review. To continue, please sign in to your onboarding account and resubmit.",
+      "message": "Hello, your onboarding has paused at the 'Website/App review' step. The business category you selected differs from what your website actually sells. Please select the correct category, or share a short note and evidence explaining your business model for a second review. To continue, please sign in to your onboarding account and resubmit."
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 917,
+      "output_tokens": 197
+    },
+    "user_prompt": "Language: English\nMessage type: fix needed to continue onboarding.\nWhere they stopped: the 'Website/App review' step.\nWhat went wrong (approved wording): The business category selected differs from what the website actually sells.\nWhat to do (approved wording): Select the correct category, or share a short note and evidence explaining the business model, for a second review.\nThen ask them to sign in to their onboarding account and resubmit."
+  },
+  "45e3a81bc00d70a5bd4532b7c4e9939f852f326cb0d240c29e17d60efbf7e4f5": {
+    "created_utc": "2026-11-08T19:56:56Z",
+    "data": {
+      "english_back_translation": "Hello! Your onboarding has stopped at the 'KYC docs' step. The GSTIN you gave is wrong, inactive, or belongs to a different legal name or address. Please enter the correct GSTIN, or upload your current GST certificate that matches your legal name and address. Then sign in to your onboarding account and submit again.",
+      "message": "Namaste! Aapka onboarding 'KYC docs' step par ruk gaya hai. Aapka diya hua GSTIN galat hai, inactive hai, ya kisi alag legal name ya address ka hai. Kripya sahi GSTIN daaliye, ya apna current GST certificate upload kijiye jo aapke legal name aur address se match kare. Phir apne onboarding account mein sign in karke dobara submit kar dijiye."
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 936,
+      "output_tokens": 276
+    },
+    "user_prompt": "Language: Hinglish\nMessage type: fix needed to continue onboarding.\nWhere they stopped: the 'KYC docs' step.\nWhat went wrong (approved wording): GSTIN is wrong, inactive, or belongs to a different legal name or address.\nWhat to do (approved wording): Enter the correct GSTIN, or upload a current GST certificate that matches the legal name and address.\nThen ask them to sign in to their onboarding account and resubmit."
+  },
+  "4d20b6757a571f8adff529db510804be2fd16fbd3fcd3c97da1de77de3aca839": {
+    "created_utc": "2026-11-08T19:55:56Z",
+    "data": {
+      "english_back_translation": "Hello, your application is paused at the 'KYC documents' step. The photo or PDF you uploaded is blurred, cropped, or password-protected. Please re-upload a clear, colour scan of the full page in PDF, JPG or PNG, with a size under 5 MB. To do this, sign in to your onboarding account and submit the document again. Thank you!",
+      "message": "नमस्ते, आपका आवेदन 'KYC दस्तावेज़' वाले चरण पर रुका हुआ है। आपने जो फ़ोटो या PDF अपलोड की है, वह धुंधली है, कटी हुई है या उस पर पासवर्ड लगा है। कृपया पूरे पेज का साफ़, रंगीन स्कैन PDF, JPG या PNG में दोबारा अपलोड करें, जिसका साइज़ 5 MB से कम हो। इसके लिए अपने ऑनबोर्डिंग अकाउंट में साइन इन करें और दस्तावेज़ फिर से जमा करें। धन्यवाद!"
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 936,
+      "output_tokens": 371
+    },
+    "user_prompt": "Language: Hindi\nMessage type: fix needed to continue onboarding.\nWhere they stopped: the 'KYC docs' step.\nWhat went wrong (approved wording): The uploaded image or PDF is blurred, cropped, or password-protected.\nWhat to do (approved wording): Re-upload a clear, full-page colour scan in PDF/JPG/PNG under 5 MB.\nThen ask them to sign in to their onboarding account and resubmit."
+  },
+  "5b3a7f6e4f163f0aa4df7ae3f6696c771117d6cec499000c00d74b13925fa4b9": {
+    "created_utc": "2026-11-08T19:57:38Z",
+    "data": {
+      "english_back_translation": "Hello! We would like to remind you that your application has stopped at the 'Business details' step. Please sign in to your onboarding account and continue from the 'Business details' step. Thank you!",
+      "message": "வணக்கம்! உங்கள் விண்ணப்பம் 'Business details' படியில் நின்றுள்ளது என்பதை நினைவூட்ட விரும்புகிறோம். தயவுசெய்து உங்கள் onboarding கணக்கில் உள்நுழைந்து, 'Business details' படியிலிருந்து தொடருங்கள். நன்றி!"
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 860,
+      "output_tokens": 212
+    },
+    "user_prompt": "Language: Tamil\nMessage type: friendly reminder (there was no rejection).\nWhere they stopped: the 'Business details' step.\nAsk them to sign in to their onboarding account and continue from the 'Business details' step."
+  },
+  "5c42183f2f9d9512a681af91f02d9541a5afc9438e115a66185ffb2d418f3a6c": {
+    "created_utc": "2026-11-08T19:58:47Z",
+    "data": {
+      "english_back_translation": "Your application is currently under review. If any further information is needed, our team will contact you. Thank you for your patience.",
+      "message": "आपका आवेदन अभी समीक्षा में है। अगर किसी और जानकारी की ज़रूरत होगी, तो हमारी टीम आपसे संपर्क करेगी। आपके धैर्य के लिए धन्यवाद।"
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 853,
+      "output_tokens": 137
+    },
+    "user_prompt": "Language: Hindi\nMessage type: fixed neutral text. Translate exactly, add nothing:\nYour application is currently under review. Our team will contact you if any further information is required. Thank you for your patience."
+  },
+  "6035c47ce12cd6e9b3c6792abeda875307457949b490f504bdd9d13b895f5f6c": {
+    "created_utc": "2026-11-08T19:57:44Z",
+    "data": {
+      "english_back_translation": "Hello! Your application has stopped at the 'KYC docs' step. Please sign in to your onboarding account and continue from the 'KYC docs' step. Thank you!",
+      "message": "नमस्कार! तुमचा अर्ज 'KYC docs' या टप्प्यावर थांबला आहे. कृपया तुमच्या onboarding खात्यात साइन इन करा आणि 'KYC docs' टप्प्यापासून पुढे सुरू ठेवा. धन्यवाद!"
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 864,
+      "output_tokens": 183
+    },
+    "user_prompt": "Language: Marathi\nMessage type: friendly reminder (there was no rejection).\nWhere they stopped: the 'KYC docs' step.\nAsk them to sign in to their onboarding account and continue from the 'KYC docs' step."
+  },
+  "6bf91b7f64a3b5be4659713f87d045e5f64746ef50238a64f6dedafd25233b8d": {
+    "created_utc": "2026-11-08T19:58:34Z",
+    "data": {
+      "english_back_translation": "Hello! Your onboarding has stopped at the 'KYC docs' step, because the uploaded image or PDF is blurred, cropped or password-protected. Please re-upload a clear, full-page colour scan in PDF, JPG or PNG format under 5 MB in size. For this, please sign in to your onboarding account and resubmit the document. Thank you!",
+      "message": "Namaste! Aapka onboarding 'KYC docs' step par ruk gaya hai, kyunki upload kiya gaya image ya PDF blurred, cropped ya password-protected hai. Kripya ek clear, poore page ka colour scan PDF, JPG ya PNG format mein 5 MB se kam size mein dobara upload karein. Iske liye apne onboarding account mein sign in karke document resubmit kar dijiye. Dhanyavaad!"
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 937,
+      "output_tokens": 293
+    },
+    "user_prompt": "Language: Hinglish\nMessage type: fix needed to continue onboarding.\nWhere they stopped: the 'KYC docs' step.\nWhat went wrong (approved wording): The uploaded image or PDF is blurred, cropped, or password-protected.\nWhat to do (approved wording): Re-upload a clear, full-page colour scan in PDF/JPG/PNG under 5 MB.\nThen ask them to sign in to their onboarding account and resubmit."
+  },
+  "71215b116974c0ccdcf5805421d71a74467daecc1c9cc99384ae95953363496a": {
+    "created_utc": "2026-11-08T19:57:49Z",
+    "data": {
+      "english_back_translation": "Hello, your registration has stopped at the 'KYC documents' step. The image or PDF you uploaded is blurred, cropped, or locked with a password. Please re-upload a colour scan where the full page is clearly visible, in PDF/JPG/PNG format, under 5 MB. Then sign in to your onboarding account and submit again. Thank you!",
+      "message": "வணக்கம், உங்கள் பதிவு 'KYC ஆவணங்கள்' படியில் நின்றுள்ளது. நீங்கள் பதிவேற்றிய படம் அல்லது PDF மங்கலாக, வெட்டப்பட்டதாக அல்லது கடவுச்சொல்லால் பூட்டப்பட்டதாக உள்ளது. தயவுசெய்து முழுப் பக்கமும் தெளிவாகத் தெரியும் வண்ண ஸ்கேனை PDF/JPG/PNG வடிவில், 5 MB-க்குக் குறைவாக மீண்டும் பதிவேற்றுங்கள். பிறகு உங்கள் onboarding கணக்கில் உள்நுழைந்து மீண்டும் சமர்ப்பியுங்கள். நன்றி!"
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 936,
+      "output_tokens": 436
+    },
+    "user_prompt": "Language: Tamil\nMessage type: fix needed to continue onboarding.\nWhere they stopped: the 'KYC docs' step.\nWhat went wrong (approved wording): The uploaded image or PDF is blurred, cropped, or password-protected.\nWhat to do (approved wording): Re-upload a clear, full-page colour scan in PDF/JPG/PNG under 5 MB.\nThen ask them to sign in to their onboarding account and resubmit."
+  },
+  "73e865999f6ea901e90e292e9eff2f2058f7d130f8ce7bc18f91940d13638dc6": {
+    "created_utc": "2026-11-08T19:56:17Z",
+    "data": {
+      "english_back_translation": "Hello, your application has stopped at the 'Bank verification' step. The account number or IFSC is wrong, or the account is not active, so the Re 1 test credit could not go through. Please sign in to your onboarding account, carefully re-enter the account number and IFSC, and check that the account is active and can receive money. After that, submit again. Thank you!",
+      "message": "नमस्ते, आपका आवेदन 'बैंक सत्यापन' चरण पर रुक गया है। खाता संख्या या IFSC गलत है, या खाता सक्रिय नहीं है, इसलिए ₹1 का टेस्ट क्रेडिट नहीं हो पाया। कृपया अपने ऑनबोर्डिंग खाते में साइन इन करें, खाता संख्या और IFSC ध्यान से दोबारा भरें, और जाँच लें कि खाता सक्रिय है और उसमें पैसे आ सकते हैं। इसके बाद फिर से जमा करें। धन्यवाद!"
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 939,
+      "output_tokens": 355
+    },
+    "user_prompt": "Language: Hindi\nMessage type: fix needed to continue onboarding.\nWhere they stopped: the 'Bank verification' step.\nWhat went wrong (approved wording): Account number or IFSC is wrong, or the account is inactive, so the Re 1 test credit failed.\nWhat to do (approved wording): Re-enter the account number and IFSC carefully; check the account is active and can receive credits.\nThen ask them to sign in to their onboarding account and resubmit."
+  },
+  "7a1bdd60fd4259a0431aa274bb341925afcd60f1d99bdfb0fd31a30a353116e3": {
+    "created_utc": "2026-11-08T19:58:37Z",
+    "data": {
+      "english_back_translation": "Hello, your onboarding has paused at the 'Bank verification' step. The bank account holder name differs from the business or PAN name. To fix this, please use a current account in the business name (or the proprietor's name for proprietorships), or upload a bank letter or cancelled cheque showing the matching name. Then sign in to your onboarding account and resubmit.",
+      "message": "Hello, your onboarding has paused at the 'Bank verification' step. The bank account holder name differs from the business or PAN name. To fix this, please use a current account in the business name (or the proprietor's name for proprietorships), or upload a bank letter or cancelled cheque showing the matching name. Then sign in to your onboarding account and resubmit."
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 938,
+      "output_tokens": 243
+    },
+    "user_prompt": "Language: English\nMessage type: fix needed to continue onboarding.\nWhere they stopped: the 'Bank verification' step.\nWhat went wrong (approved wording): The bank account holder name differs from the business or PAN name.\nWhat to do (approved wording): Use a current account in the business name (or proprietor's name for proprietorships), or upload a bank letter / cancelled cheque showing the matching name.\nThen ask them to sign in to their onboarding account and resubmit."
+  },
+  "7b4f452c536a21d8ab1267685e1d647a076c20a172642eaacafbd9f70f8d6f57": {
+    "created_utc": "2026-11-08T19:55:13Z",
+    "data": {
+      "english_back_translation": "Hello! We noticed your onboarding is paused at the 'KYC docs' step. Whenever you are ready, please sign in to your onboarding account and continue from the 'KYC docs' step. Thank you, and we are here if you need help.",
+      "message": "Hello! We noticed your onboarding is paused at the 'KYC docs' step. Whenever you are ready, please sign in to your onboarding account and continue from the 'KYC docs' step. Thank you, and we are here if you need help."
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 861,
+      "output_tokens": 171
+    },
+    "user_prompt": "Language: English\nMessage type: friendly reminder (there was no rejection).\nWhere they stopped: the 'KYC docs' step.\nAsk them to sign in to their onboarding account and continue from the 'KYC docs' step."
+  },
+  "7cce6b30feda7a5e0b9a61ad1682cd3dafc40e8cac9fc01a17e700b768ff2550": {
+    "created_utc": "2026-11-08T19:55:31Z",
+    "data": {
+      "english_back_translation": "Hello, your registration has stopped at the 'KYC docs' step. The GSTIN you provided is wrong, not active, or belongs to a different legal name or address. Please enter the correct GSTIN, or upload a current GST certificate that matches the legal name and address. Then sign in to your onboarding account and submit again. Thank you!",
+      "message": "வணக்கம், உங்கள் பதிவு 'KYC docs' படியில் நின்றுள்ளது. நீங்கள் கொடுத்த GSTIN தவறாக உள்ளது, செயலில் இல்லை, அல்லது வேறு சட்டப்பூர்வ பெயர் அல்லது முகவரிக்கு உரியதாக உள்ளது. சரியான GSTIN-ஐ உள்ளிடவும், அல்லது சட்டப்பூர்வ பெயர் மற்றும் முகவரியுடன் பொருந்தும் தற்போதைய GST சான்றிதழை பதிவேற்றவும். பிறகு உங்கள் onboarding கணக்கில் உள்நுழைந்து மீண்டும் சமர்ப்பிக்கவும். நன்றி!"
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 935,
+      "output_tokens": 419
+    },
+    "user_prompt": "Language: Tamil\nMessage type: fix needed to continue onboarding.\nWhere they stopped: the 'KYC docs' step.\nWhat went wrong (approved wording): GSTIN is wrong, inactive, or belongs to a different legal name or address.\nWhat to do (approved wording): Enter the correct GSTIN, or upload a current GST certificate that matches the legal name and address.\nThen ask them to sign in to their onboarding account and resubmit."
+  },
+  "7e8b94f5d94640a83e741beace7625f89a035a74dccaf8cf74841b4676b725ed": {
+    "created_utc": "2026-11-08T19:57:59Z",
+    "data": {
+      "english_back_translation": "Hello! Your onboarding is paused at the 'KYC docs' step. The address proof was not found, or it is older than 3 months, or it shows a different address. Please upload a recent utility bill, rent agreement or other valid address proof that matches the address on the application. To do this, sign in to your onboarding account and submit again.",
+      "message": "Namaste! Aapka onboarding 'KYC docs' step par ruka hua hai. Address proof nahi mila, ya woh 3 mahine se purana hai, ya usme alag address hai. Kripya ek recent utility bill, rent agreement ya koi aur valid address proof upload karein jo application wale address se match kare. Iske liye apne onboarding account mein sign in karke dobara submit karein."
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 929,
+      "output_tokens": 258
+    },
+    "user_prompt": "Language: Hinglish\nMessage type: fix needed to continue onboarding.\nWhere they stopped: the 'KYC docs' step.\nWhat went wrong (approved wording): No address proof, or the proof is older than 3 months or shows a different address.\nWhat to do (approved wording): Upload a recent utility bill, rent agreement or other valid address proof matching the application address.\nThen ask them to sign in to their onboarding account and resubmit."
+  },
+  "90cd60c4e53e7f99c05a42825e1a6512c9ceec45162976bbcaf560e926292b5a": {
+    "created_utc": "2026-11-08T19:55:42Z",
+    "data": {
+      "english_back_translation": "Hello! Your onboarding has paused at the 'Business details' step. Please sign in to your onboarding account and continue from the 'Business details' step. Thank you!",
+      "message": "नमस्ते! आपका ऑनबोर्डिंग 'Business details' चरण पर रुका हुआ है। कृपया अपने ऑनबोर्डिंग अकाउंट में साइन इन करें और 'Business details' चरण से आगे बढ़ें। धन्यवाद!"
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 860,
+      "output_tokens": 175
+    },
+    "user_prompt": "Language: Hindi\nMessage type: friendly reminder (there was no rejection).\nWhere they stopped: the 'Business details' step.\nAsk them to sign in to their onboarding account and continue from the 'Business details' step."
+  },
+  "97160fdb667da27ca4417c214ffa18774828fc1ebb98e2a823a9a92c8cec4d7e": {
+    "created_utc": "2026-11-08T19:56:31Z",
+    "data": {
+      "english_back_translation": "Hello, your onboarding has stopped at the 'KYC documents' step. The ID of the authorised signatory or director is missing, or its details do not match the application. Please upload a valid ID of the authorised signatory, and make sure the name and date of birth are the same as in the application. Then sign in to your onboarding account and submit again. Thank you!",
+      "message": "ನಮಸ್ಕಾರ, ನಿಮ್ಮ ಆನ್‌ಬೋರ್ಡಿಂಗ್ 'KYC ದಾಖಲೆಗಳು' ಹಂತದಲ್ಲಿ ನಿಂತಿದೆ. ಅಧಿಕೃತ ಸಹಿದಾರರ ಅಥವಾ ನಿರ್ದೇಶಕರ ಗುರುತಿನ ಚೀಟಿ ಕಾಣೆಯಾಗಿದೆ, ಅಥವಾ ಅದರ ವಿವರಗಳು ಅರ್ಜಿಯೊಂದಿಗೆ ಹೊಂದಾಣಿಕೆಯಾಗುತ್ತಿಲ್ಲ. ದಯವಿಟ್ಟು ಅಧಿಕೃತ ಸಹಿದಾರರ ಮಾನ್ಯವಾದ ಗುರುತಿನ ಚೀಟಿಯನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ, ಮತ್ತು ಹೆಸರು ಹಾಗೂ ಜನ್ಮ ದಿನಾಂಕ ಅರ್ಜಿಯಲ್ಲಿರುವಂತೆಯೇ ಇರುವುದನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ. ನಂತರ ನಿಮ್ಮ ಆನ್‌ಬೋರ್ಡಿಂಗ್ ಖಾತೆಗೆ ಸೈನ್ ಇನ್ ಮಾಡಿ ಮತ್ತೆ ಸಲ್ಲಿಸಿ. ಧನ್ಯವಾದಗಳು!"
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 930,
+      "output_tokens": 804
+    },
+    "user_prompt": "Language: Kannada\nMessage type: fix needed to continue onboarding.\nWhere they stopped: the 'KYC docs' step.\nWhat went wrong (approved wording): Authorised signatory or director ID is missing, or the details don't match the application.\nWhat to do (approved wording): Upload a valid ID of the authorised signatory and ensure the name and DOB match the application.\nThen ask them to sign in to their onboarding account and resubmit."
+  },
+  "97636093f8c05efd30d990a41fdfbf10ebce9cbaeed4a814a8664346bddc5f1e": {
+    "created_utc": "2026-11-08T19:56:00Z",
+    "data": {
+      "english_back_translation": "Hello! Your onboarding has stopped at the 'KYC docs' step, because the name on the PAN card is different from the business name you entered. Please upload the PAN of the business (or proprietor) whose name matches the application, or correct the business name to match the PAN. After that, sign in to your onboarding account and submit again. Thank you!",
+      "message": "Namaste! Aapka onboarding 'KYC docs' step par ruka hua hai, kyunki PAN card par jo naam hai woh aapke daale hue business name se alag hai. Kripya us business (ya proprietor) ka PAN upload kijiye jiska naam application se match karta ho, ya phir business name ko PAN ke hisaab se sahi kar dijiye. Iske baad apne onboarding account mein sign in karke dobara submit kar dijiye. Dhanyavaad!"
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 932,
+      "output_tokens": 294
+    },
+    "user_prompt": "Language: Hinglish\nMessage type: fix needed to continue onboarding.\nWhere they stopped: the 'KYC docs' step.\nWhat went wrong (approved wording): The name on the PAN card is different from the business name entered.\nWhat to do (approved wording): Upload the PAN of the business (or proprietor) whose name matches the application, or correct the business name to match the PAN.\nThen ask them to sign in to their onboarding account and resubmit."
+  },
+  "9a4664538948aa02c60acdb5f3ef008f832577e6b0be34cb8d73883f80020722": {
+    "created_utc": "2026-11-08T19:57:31Z",
+    "data": {
+      "english_back_translation": "Hello! Your onboarding has stopped at the 'Business details' step. Please sign in to your onboarding account and continue from the 'Business details' step. Thank you!",
+      "message": "ನಮಸ್ಕಾರ! ನಿಮ್ಮ ಆನ್‌ಬೋರ್ಡಿಂಗ್ 'Business details' ಹಂತದಲ್ಲಿ ನಿಂತಿದೆ. ದಯವಿಟ್ಟು ನಿಮ್ಮ ಆನ್‌ಬೋರ್ಡಿಂಗ್ ಖಾತೆಗೆ ಸೈನ್ ಇನ್ ಮಾಡಿ ಮತ್ತು 'Business details' ಹಂತದಿಂದ ಮುಂದುವರಿಸಿ. ಧನ್ಯವಾದಗಳು!"
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 860,
+      "output_tokens": 324
+    },
+    "user_prompt": "Language: Kannada\nMessage type: friendly reminder (there was no rejection).\nWhere they stopped: the 'Business details' step.\nAsk them to sign in to their onboarding account and continue from the 'Business details' step."
+  },
+  "9a85520347f582cbef0e8cfeb9395afc585d851702ee3d5bddb0236f51404ad2": {
+    "created_utc": "2026-11-08T19:56:20Z",
+    "data": {
+      "diagnosed_reason_code": "R05",
+      "evidence_quote": "Doc blurred and cropped",
+      "explanation": "The note says the uploaded document is blurred and cropped, which matches an unreadable document.",
+      "needs_human_review": false,
+      "sensitive_case": false
+    },
+    "effort": "medium",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 1403,
+      "output_tokens": 91
+    },
+    "user_prompt": "Catalog (code | reviewer reason | plain meaning):\nR01 | PAN name does not match business name | The name on the PAN card is different from the business name entered.\nR02 | GST certificate invalid or mismatched | GSTIN is wrong, inactive, or belongs to a different legal name or address.\nR03 | Bank account name mismatch | The bank account holder name differs from the business or PAN name.\nR04 | Bank verification failed | Account number or IFSC is wrong, or the account is inactive, so the Re 1 test credit failed.\nR05 | Document unreadable | The uploaded image or PDF is blurred, cropped, or password-protected.\nR06 | Website missing mandatory policy pages | Website or app lacks Terms & Conditions, Privacy Policy, Refund/Cancellation Policy or Contact details.\nR07 | Website not live | Website is down, under construction, or needs a login to view products and prices.\nR08 | Address proof missing or outdated | No address proof, or the proof is older than 3 months or shows a different address.\nR09 | Signatory details incomplete | Authorised signatory or director ID is missing, or the details don't match the application.\nR10 | Restricted business category | The business sells products or services we cannot support (for example gambling or prohibited goods).\nR11 | Declared category differs from website | The business category selected differs from what the website actually sells.\nR12 | Compliance / sanctions screening hit | The application matched a negative or sanctions list during screening.\nR13 | Abandoned application | No rejection. The applicant started the application but stopped without finishing.\n\nReviewer note:\n<<<\nDoc blurred and cropped, cannot verify\n>>>"
+  },
+  "a6e5f402355379e9f2eb27a0877ea0ee34585c7514927a467c2b4e399446a31d": {
+    "created_utc": "2026-11-08T19:57:33Z",
+    "data": {
+      "diagnosed_reason_code": "R10",
+      "evidence_quote": "Business category not supported by policy",
+      "explanation": "The note states the business category is not supported, which matches the restricted business category reason.",
+      "needs_human_review": false,
+      "sensitive_case": true
+    },
+    "effort": "medium",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 1396,
+      "output_tokens": 85
+    },
+    "user_prompt": "Catalog (code | reviewer reason | plain meaning):\nR01 | PAN name does not match business name | The name on the PAN card is different from the business name entered.\nR02 | GST certificate invalid or mismatched | GSTIN is wrong, inactive, or belongs to a different legal name or address.\nR03 | Bank account name mismatch | The bank account holder name differs from the business or PAN name.\nR04 | Bank verification failed | Account number or IFSC is wrong, or the account is inactive, so the Re 1 test credit failed.\nR05 | Document unreadable | The uploaded image or PDF is blurred, cropped, or password-protected.\nR06 | Website missing mandatory policy pages | Website or app lacks Terms & Conditions, Privacy Policy, Refund/Cancellation Policy or Contact details.\nR07 | Website not live | Website is down, under construction, or needs a login to view products and prices.\nR08 | Address proof missing or outdated | No address proof, or the proof is older than 3 months or shows a different address.\nR09 | Signatory details incomplete | Authorised signatory or director ID is missing, or the details don't match the application.\nR10 | Restricted business category | The business sells products or services we cannot support (for example gambling or prohibited goods).\nR11 | Declared category differs from website | The business category selected differs from what the website actually sells.\nR12 | Compliance / sanctions screening hit | The application matched a negative or sanctions list during screening.\nR13 | Abandoned application | No rejection. The applicant started the application but stopped without finishing.\n\nReviewer note:\n<<<\nBusiness category not supported by policy\n>>>"
+  },
+  "ad581917317aa8917c70ba58b60f35710ad6ecc7fadb6ad817119aa473e9eed5": {
+    "created_utc": "2026-11-08T19:56:42Z",
+    "data": {
+      "english_back_translation": "Hello, your onboarding has paused at the 'KYC docs' step. The name on the PAN card is different from the business name you entered. Please upload the PAN of the business (or proprietor) whose name matches the application, or correct the business name to match the PAN. Then sign in to your onboarding account and resubmit.",
+      "message": "Hello, your onboarding has paused at the 'KYC docs' step. The name on the PAN card is different from the business name you entered. Please upload the PAN of the business (or proprietor) whose name matches the application, or correct the business name to match the PAN. Then sign in to your onboarding account and resubmit."
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 928,
+      "output_tokens": 215
+    },
+    "user_prompt": "Language: English\nMessage type: fix needed to continue onboarding.\nWhere they stopped: the 'KYC docs' step.\nWhat went wrong (approved wording): The name on the PAN card is different from the business name entered.\nWhat to do (approved wording): Upload the PAN of the business (or proprietor) whose name matches the application, or correct the business name to match the PAN.\nThen ask them to sign in to their onboarding account and resubmit."
+  },
+  "ae473c89293f4be6871cd99a7c176fd373900ec2b5c451ff0a604f74dc9e5bd6": {
+    "created_utc": "2026-11-08T19:56:12Z",
+    "data": {
+      "english_back_translation": "Hello, your onboarding has stopped at the 'Website/App review' step. Your website or app does not have Terms & Conditions, Privacy Policy, Refund/Cancellation Policy or Contact details. Please add all four of these pages with properly working links. Then sign in to your onboarding account and resubmit your website address. Thank you.",
+      "message": "ನಮಸ್ಕಾರ, ನಿಮ್ಮ ಆನ್‌ಬೋರ್ಡಿಂಗ್ 'ವೆಬ್‌ಸೈಟ್/ಆ್ಯಪ್ ಪರಿಶೀಲನೆ' ಹಂತದಲ್ಲಿ ನಿಂತಿದೆ. ನಿಮ್ಮ ವೆಬ್‌ಸೈಟ್ ಅಥವಾ ಆ್ಯಪ್‌ನಲ್ಲಿ ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳು, ಗೌಪ್ಯತಾ ನೀತಿ, ಮರುಪಾವತಿ/ರದ್ದತಿ ನೀತಿ ಅಥವಾ ಸಂಪರ್ಕ ವಿವರಗಳು ಇಲ್ಲ. ದಯವಿಟ್ಟು ಈ ನಾಲ್ಕೂ ಪುಟಗಳನ್ನು ಸರಿಯಾಗಿ ಕೆಲಸ ಮಾಡುವ ಲಿಂಕ್‌ಗಳೊಂದಿಗೆ ಸೇರಿಸಿ. ನಂತರ ನಿಮ್ಮ ಆನ್‌ಬೋರ್ಡಿಂಗ್ ಖಾತೆಗೆ ಸೈನ್ ಇನ್ ಮಾಡಿ ಮತ್ತು ನಿಮ್ಮ ವೆಬ್‌ಸೈಟ್ ವಿಳಾಸವನ್ನು ಮತ್ತೆ ಸಲ್ಲಿಸಿ. ಧನ್ಯವಾದಗಳು."
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 937,
+      "output_tokens": 795
+    },
+    "user_prompt": "Language: Kannada\nMessage type: fix needed to continue onboarding.\nWhere they stopped: the 'Website/App review' step.\nWhat went wrong (approved wording): Website or app lacks Terms & Conditions, Privacy Policy, Refund/Cancellation Policy or Contact details.\nWhat to do (approved wording): Add all four pages with working links and resubmit the website URL.\nThen ask them to sign in to their onboarding account and resubmit."
+  },
+  "b060f78137861e493f7df868317d9b0fa5260e9cd9391b2fe00baa0852c6a1fd": {
+    "created_utc": "2026-11-08T19:57:10Z",
+    "data": {
+      "english_back_translation": "Hello, your registration has stopped at the 'Bank verification' step. The bank account holder's name does not match the business name or PAN name. Please use a current account in the business's name (in the owner's name if it is a proprietorship), or upload a bank letter / cancelled cheque showing the matching name. Then sign in to your onboarding account and submit again. Thank you!",
+      "message": "வணக்கம், உங்கள் பதிவு 'வங்கி சரிபார்ப்பு' படியில் நின்றுள்ளது. வங்கிக் கணக்கு வைத்திருப்பவரின் பெயர், வணிகப் பெயர் அல்லது PAN பெயருடன் பொருந்தவில்லை. வணிகத்தின் பெயரில் உள்ள நடப்புக் கணக்கைப் பயன்படுத்துங்கள் (தனிநபர் உரிமை நிறுவனம் என்றால் உரிமையாளரின் பெயரில்), அல்லது பொருந்தும் பெயரைக் காட்டும் வங்கிக் கடிதம் / ரத்து செய்யப்பட்ட காசோலையைப் பதிவேற்றுங்கள். பிறகு உங்கள் onboarding கணக்கில் உள்நுழைந்து மீண்டும் சமர்ப்பியுங்கள். நன்றி!"
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 941,
+      "output_tokens": 485
+    },
+    "user_prompt": "Language: Tamil\nMessage type: fix needed to continue onboarding.\nWhere they stopped: the 'Bank verification' step.\nWhat went wrong (approved wording): The bank account holder name differs from the business or PAN name.\nWhat to do (approved wording): Use a current account in the business name (or proprietor's name for proprietorships), or upload a bank letter / cancelled cheque showing the matching name.\nThen ask them to sign in to their onboarding account and resubmit."
+  },
+  "b4cc0f457e6583053b6d536748ce45fb7d4bad6fda07d823ad2c366d3c954075": {
+    "created_utc": "2026-11-08T19:55:39Z",
+    "data": {
+      "english_back_translation": "Hello! Your onboarding has stopped at the 'Bank verification' step, because the bank account holder's name does not match the business or PAN name. Please use a current account in the business name (in the proprietor's name if it is a proprietorship), or upload a bank letter / cancelled cheque showing the matching name. After that, please sign in to your onboarding account and submit again. Thank you!",
+      "message": "Namaste! Aapka onboarding 'Bank verification' step par ruk gaya hai, kyunki bank account holder ka naam business ya PAN wale naam se match nahi kar raha. Kripya business ke naam wala current account use karein (proprietorship ho to proprietor ke naam wala), ya phir matching naam dikhane wala bank letter / cancelled cheque upload karein. Uske baad apne onboarding account mein sign in karke dobara submit kar dijiye. Dhanyavaad!"
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 942,
+      "output_tokens": 312
+    },
+    "user_prompt": "Language: Hinglish\nMessage type: fix needed to continue onboarding.\nWhere they stopped: the 'Bank verification' step.\nWhat went wrong (approved wording): The bank account holder name differs from the business or PAN name.\nWhat to do (approved wording): Use a current account in the business name (or proprietor's name for proprietorships), or upload a bank letter / cancelled cheque showing the matching name.\nThen ask them to sign in to their onboarding account and resubmit."
+  },
+  "b4df142e66af963ecfb21a1fc0d8417be4db827151e21cfa1f0a7b7cd6c8432b": {
+    "created_utc": "2026-11-08T19:57:27Z",
+    "data": {
+      "english_back_translation": "Hello, your onboarding has stopped at the 'Bank verification' step. The account number or IFSC is wrong, or the account is not active, so the Re 1 test credit failed. Please re-enter the account number and IFSC carefully, and make sure the account is active and can receive credits. Then sign in to your onboarding account and submit again. Thank you.",
+      "message": "ನಮಸ್ಕಾರ, ನಿಮ್ಮ ಆನ್‌ಬೋರ್ಡಿಂಗ್ 'ಬ್ಯಾಂಕ್ ಪರಿಶೀಲನೆ' ಹಂತದಲ್ಲಿ ನಿಂತಿದೆ. ಖಾತೆ ಸಂಖ್ಯೆ ಅಥವಾ IFSC ತಪ್ಪಾಗಿದೆ, ಅಥವಾ ಖಾತೆ ಸಕ್ರಿಯವಾಗಿಲ್ಲ, ಹಾಗಾಗಿ ₹1 ಪರೀಕ್ಷಾ ಜಮೆ ವಿಫಲವಾಗಿದೆ. ದಯವಿಟ್ಟು ಖಾತೆ ಸಂಖ್ಯೆ ಮತ್ತು IFSC ಅನ್ನು ಎಚ್ಚರಿಕೆಯಿಂದ ಮತ್ತೆ ನಮೂದಿಸಿ, ಮತ್ತು ಖಾತೆ ಸಕ್ರಿಯವಾಗಿದೆ ಹಾಗೂ ಜಮೆಗಳನ್ನು ಸ್ವೀಕರಿಸಬಲ್ಲದು ಎಂದು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ. ನಂತರ ನಿಮ್ಮ ಆನ್‌ಬೋರ್ಡಿಂಗ್ ಖಾತೆಗೆ ಸೈನ್ ಇನ್ ಮಾಡಿ ಮತ್ತೆ ಸಲ್ಲಿಸಿ. ಧನ್ಯವಾದಗಳು."
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 939,
+      "output_tokens": 802
+    },
+    "user_prompt": "Language: Kannada\nMessage type: fix needed to continue onboarding.\nWhere they stopped: the 'Bank verification' step.\nWhat went wrong (approved wording): Account number or IFSC is wrong, or the account is inactive, so the Re 1 test credit failed.\nWhat to do (approved wording): Re-enter the account number and IFSC carefully; check the account is active and can receive credits.\nThen ask them to sign in to their onboarding account and resubmit."
+  },
+  "b74ecb3bb5d30ad23c7e241da9d2d7b7dc6a51b8dbae0efce1546359b85ea250": {
+    "created_utc": "2026-11-08T19:57:41Z",
+    "data": {
+      "english_back_translation": "Hello! We noticed your onboarding is paused at the 'Bank verification' step. Nothing is wrong, and you can pick up right where you left off. Please sign in to your onboarding account and continue from the 'Bank verification' step. Thank you!",
+      "message": "Hello! We noticed your onboarding is paused at the 'Bank verification' step. Nothing is wrong, and you can pick up right where you left off. Please sign in to your onboarding account and continue from the 'Bank verification' step. Thank you!"
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 861,
+      "output_tokens": 180
+    },
+    "user_prompt": "Language: English\nMessage type: friendly reminder (there was no rejection).\nWhere they stopped: the 'Bank verification' step.\nAsk them to sign in to their onboarding account and continue from the 'Bank verification' step."
+  },
+  "b86d9509a5b8fc32cba058a5881e9ff45a1f7bab7a39f2fc55430cdc1eaaccd9": {
+    "created_utc": "2026-11-08T19:57:18Z",
+    "data": {
+      "english_back_translation": "Hello, your onboarding has paused at the 'Bank verification' step. The bank account holder's name is different from the name of your business or the name on your PAN. Please provide a current account in the business name (in the proprietor's name for proprietorships), or upload a bank letter / cancelled cheque showing the matching name. After that, sign in to your onboarding account and submit again. Thank you!",
+      "message": "नमस्ते, आपका ऑनबोर्डिंग 'बैंक सत्यापन' चरण पर रुका हुआ है। बैंक खाताधारक का नाम आपके व्यवसाय या PAN पर लिखे नाम से अलग है। कृपया व्यवसाय के नाम वाला चालू खाता (प्रोप्राइटरशिप के लिए प्रोप्राइटर के नाम वाला) दें, या मिलता-जुलता नाम दिखाने वाला बैंक पत्र / रद्द किया हुआ चेक अपलोड करें। इसके बाद अपने ऑनबोर्डिंग खाते में साइन इन करके दोबारा जमा करें। धन्यवाद!"
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 941,
+      "output_tokens": 397
+    },
+    "user_prompt": "Language: Hindi\nMessage type: fix needed to continue onboarding.\nWhere they stopped: the 'Bank verification' step.\nWhat went wrong (approved wording): The bank account holder name differs from the business or PAN name.\nWhat to do (approved wording): Use a current account in the business name (or proprietor's name for proprietorships), or upload a bank letter / cancelled cheque showing the matching name.\nThen ask them to sign in to their onboarding account and resubmit."
+  },
+  "ce86f400d7bc32e192515aa0cd3d2f9eb19ea704d6a01dd7514d0288b0199421": {
+    "created_utc": "2026-11-08T19:58:43Z",
+    "data": {
+      "english_back_translation": "Your application is currently under review. If any further information is needed, our team will contact you. Thank you for your patience.",
+      "message": "உங்கள் விண்ணப்பம் தற்போது பரிசீலனையில் உள்ளது. மேலும் ஏதேனும் தகவல் தேவைப்பட்டால் எங்கள் குழு உங்களைத் தொடர்பு கொள்ளும். உங்கள் பொறுமைக்கு நன்றி."
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 853,
+      "output_tokens": 171
+    },
+    "user_prompt": "Language: Tamil\nMessage type: fixed neutral text. Translate exactly, add nothing:\nYour application is currently under review. Our team will contact you if any further information is required. Thank you for your patience."
+  },
+  "d566cc8184acf34cbdc7d209929d87fd917c7fecd65a04eb4e0d326226ce73c5": {
+    "created_utc": "2026-11-08T19:58:19Z",
+    "data": {
+      "english_back_translation": "Hello, your onboarding process has paused at the 'Website/App review' step. Your website or app is missing some of these: Terms & Conditions, Privacy Policy, Refund/Cancellation Policy or Contact details. Please add all four pages with working links and resubmit the website address. To do this, sign in to your onboarding account and resubmit. Thank you!",
+      "message": "नमस्कार, तुमची ऑनबोर्डिंग प्रक्रिया 'वेबसाइट/ॲप तपासणी' या टप्प्यावर थांबली आहे. तुमच्या वेबसाइट किंवा ॲपवर अटी व शर्ती (Terms & Conditions), गोपनीयता धोरण (Privacy Policy), परतावा/रद्द करण्याचे धोरण (Refund/Cancellation Policy) किंवा संपर्क माहिती यांपैकी काही नाही. कृपया ही चारही पाने चालू असलेल्या लिंकसह जोडा आणि वेबसाइटचा पत्ता पुन्हा सबमिट करा. त्यासाठी तुमच्या ऑनबोर्डिंग खात्यात साइन इन करून पुन्हा सबमिट करा. धन्यवाद!"
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 937,
+      "output_tokens": 443
+    },
+    "user_prompt": "Language: Marathi\nMessage type: fix needed to continue onboarding.\nWhere they stopped: the 'Website/App review' step.\nWhat went wrong (approved wording): Website or app lacks Terms & Conditions, Privacy Policy, Refund/Cancellation Policy or Contact details.\nWhat to do (approved wording): Add all four pages with working links and resubmit the website URL.\nThen ask them to sign in to their onboarding account and resubmit."
+  },
+  "dbed3dea8020e4ecff47f0785b29e66399fd995ad52d0920f90d5fef5f041dcb": {
+    "created_utc": "2026-11-08T19:56:05Z",
+    "data": {
+      "english_back_translation": "Hello! Your onboarding has stopped at the 'Website/App review' step, because your website is currently down, under construction, or asks for a login to see products and prices. Please make your website open to everyone, where products, prices and contact details are clearly visible. Then sign in to your onboarding account and submit again. Thank you!",
+      "message": "Namaste! Aapka onboarding 'Website/App review' step par ruk gaya hai, kyunki aapki website abhi down hai, under construction hai, ya products aur prices dekhne ke liye login maangti hai. Kripya apni website sabke liye open kar dijiye, jahan products, prices aur contact details saaf dikhein. Phir apne onboarding account mein sign in karke dobara submit kar dijiye. Dhanyavaad!"
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 926,
+      "output_tokens": 271
+    },
+    "user_prompt": "Language: Hinglish\nMessage type: fix needed to continue onboarding.\nWhere they stopped: the 'Website/App review' step.\nWhat went wrong (approved wording): Website is down, under construction, or needs a login to view products and prices.\nWhat to do (approved wording): Make the website publicly accessible with products, prices and contact details visible, then resubmit.\nThen ask them to sign in to their onboarding account and resubmit."
+  },
+  "e26a294af0447d9a531c2ab3d3c2d8ddbe8716618a75cd58265672f1f83e1743": {
+    "created_utc": "2026-11-08T19:58:21Z",
+    "data": {
+      "diagnosed_reason_code": "R09",
+      "evidence_quote": "Signatory ka ID proof upload nahi hua",
+      "explanation": "The note says the signatory's ID proof was not uploaded, which matches missing authorised signatory ID.",
+      "needs_human_review": false,
+      "sensitive_case": false
+    },
+    "effort": "medium",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 1404,
+      "output_tokens": 103
+    },
+    "user_prompt": "Catalog (code | reviewer reason | plain meaning):\nR01 | PAN name does not match business name | The name on the PAN card is different from the business name entered.\nR02 | GST certificate invalid or mismatched | GSTIN is wrong, inactive, or belongs to a different legal name or address.\nR03 | Bank account name mismatch | The bank account holder name differs from the business or PAN name.\nR04 | Bank verification failed | Account number or IFSC is wrong, or the account is inactive, so the Re 1 test credit failed.\nR05 | Document unreadable | The uploaded image or PDF is blurred, cropped, or password-protected.\nR06 | Website missing mandatory policy pages | Website or app lacks Terms & Conditions, Privacy Policy, Refund/Cancellation Policy or Contact details.\nR07 | Website not live | Website is down, under construction, or needs a login to view products and prices.\nR08 | Address proof missing or outdated | No address proof, or the proof is older than 3 months or shows a different address.\nR09 | Signatory details incomplete | Authorised signatory or director ID is missing, or the details don't match the application.\nR10 | Restricted business category | The business sells products or services we cannot support (for example gambling or prohibited goods).\nR11 | Declared category differs from website | The business category selected differs from what the website actually sells.\nR12 | Compliance / sanctions screening hit | The application matched a negative or sanctions list during screening.\nR13 | Abandoned application | No rejection. The applicant started the application but stopped without finishing.\n\nReviewer note:\n<<<\nSignatory ka ID proof upload nahi hua\n>>>"
+  },
+  "e4dbeee4e3f05d2930cdd81fb17d4d924ba742f6a5b66c2f402458120e1402f3": {
+    "created_utc": "2026-11-08T19:55:06Z",
+    "data": {
+      "english_back_translation": "Hello, your registration has stopped at the 'KYC docs' step. The GSTIN you provided is wrong, not active, or belongs to a different legal name or address. Please enter the correct GSTIN, or upload a current GST certificate that matches the legal name and address. After that, sign in to your onboarding account and submit again. Thank you!",
+      "message": "नमस्कार, तुमची नोंदणी 'KYC docs' या टप्प्यावर थांबली आहे. तुम्ही दिलेला GSTIN चुकीचा आहे, सक्रिय नाही, किंवा तो वेगळ्या कायदेशीर नावाचा किंवा पत्त्याचा आहे. कृपया योग्य GSTIN भरा, किंवा कायदेशीर नाव आणि पत्त्याशी जुळणारे सध्याचे GST प्रमाणपत्र अपलोड करा. त्यानंतर तुमच्या onboarding खात्यात साइन इन करून पुन्हा सबमिट करा. धन्यवाद!"
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 935,
+      "output_tokens": 371
+    },
+    "user_prompt": "Language: Marathi\nMessage type: fix needed to continue onboarding.\nWhere they stopped: the 'KYC docs' step.\nWhat went wrong (approved wording): GSTIN is wrong, inactive, or belongs to a different legal name or address.\nWhat to do (approved wording): Enter the correct GSTIN, or upload a current GST certificate that matches the legal name and address.\nThen ask them to sign in to their onboarding account and resubmit."
+  },
+  "e83ae01a78be0c0e8923bf300b798a14b46cb51da064772101213516b37fe135": {
+    "created_utc": "2026-11-08T19:57:53Z",
+    "data": {
+      "english_back_translation": "Hello, your onboarding has paused at the 'Bank verification' step. We could not send the Re 1 test credit because the account number or IFSC is wrong, or the account is inactive. Please sign in to your onboarding account, re-enter your account number and IFSC carefully, and resubmit. Before you resubmit, please check that the account is active and can receive credits. Thank you!",
+      "message": "Hello, your onboarding has paused at the 'Bank verification' step. We could not send the Re 1 test credit because the account number or IFSC is wrong, or the account is inactive. Please sign in to your onboarding account, re-enter your account number and IFSC carefully, and resubmit. Before you resubmit, please check that the account is active and can receive credits. Thank you!"
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 936,
+      "output_tokens": 260
+    },
+    "user_prompt": "Language: English\nMessage type: fix needed to continue onboarding.\nWhere they stopped: the 'Bank verification' step.\nWhat went wrong (approved wording): Account number or IFSC is wrong, or the account is inactive, so the Re 1 test credit failed.\nWhat to do (approved wording): Re-enter the account number and IFSC carefully; check the account is active and can receive credits.\nThen ask them to sign in to their onboarding account and resubmit."
+  },
+  "e94c3fbb074bb854143a4c7baa98d45f6226be2f27028000975bc57692512f74": {
+    "created_utc": "2026-11-08T19:56:46Z",
+    "data": {
+      "english_back_translation": "Hello! Your onboarding has paused at the 'Business details' step. Please sign in to your onboarding account and continue from the 'Business details' step. Thank you!",
+      "message": "नमस्कार! तुमचे ऑनबोर्डिंग 'Business details' या टप्प्यावर थांबले आहे. कृपया तुमच्या ऑनबोर्डिंग खात्यात साइन इन करा आणि 'Business details' टप्प्यापासून पुढे सुरू ठेवा. धन्यवाद!"
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 860,
+      "output_tokens": 192
+    },
+    "user_prompt": "Language: Marathi\nMessage type: friendly reminder (there was no rejection).\nWhere they stopped: the 'Business details' step.\nAsk them to sign in to their onboarding account and continue from the 'Business details' step."
+  },
+  "ef77f72896e6f80e14cced44d7aca41b9f9906109eaf17e267c143c3a265bf2a": {
+    "created_utc": "2026-11-08T19:56:39Z",
+    "data": {
+      "diagnosed_reason_code": "R01",
+      "evidence_quote": "PAN ka naam aur application ka naam match nahi kar raha",
+      "explanation": "The note says the name on the PAN does not match the name entered in the application, which is a PAN name mismatch.",
+      "needs_human_review": false,
+      "sensitive_case": false
+    },
+    "effort": "medium",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 1409,
+      "output_tokens": 354
+    },
+    "user_prompt": "Catalog (code | reviewer reason | plain meaning):\nR01 | PAN name does not match business name | The name on the PAN card is different from the business name entered.\nR02 | GST certificate invalid or mismatched | GSTIN is wrong, inactive, or belongs to a different legal name or address.\nR03 | Bank account name mismatch | The bank account holder name differs from the business or PAN name.\nR04 | Bank verification failed | Account number or IFSC is wrong, or the account is inactive, so the Re 1 test credit failed.\nR05 | Document unreadable | The uploaded image or PDF is blurred, cropped, or password-protected.\nR06 | Website missing mandatory policy pages | Website or app lacks Terms & Conditions, Privacy Policy, Refund/Cancellation Policy or Contact details.\nR07 | Website not live | Website is down, under construction, or needs a login to view products and prices.\nR08 | Address proof missing or outdated | No address proof, or the proof is older than 3 months or shows a different address.\nR09 | Signatory details incomplete | Authorised signatory or director ID is missing, or the details don't match the application.\nR10 | Restricted business category | The business sells products or services we cannot support (for example gambling or prohibited goods).\nR11 | Declared category differs from website | The business category selected differs from what the website actually sells.\nR12 | Compliance / sanctions screening hit | The application matched a negative or sanctions list during screening.\nR13 | Abandoned application | No rejection. The applicant started the application but stopped without finishing.\n\nReviewer note:\n<<<\nPAN ka naam aur application ka naam match nahi kar raha\n>>>"
+  },
+  "fe89ff41aea86d96e92f79f73da363a84bfca4fe7be75f4651ee46cb4fba406f": {
+    "created_utc": "2026-11-08T19:58:09Z",
+    "data": {
+      "english_back_translation": "Hello! Your onboarding is paused at the 'KYC docs' step. Whenever you have a little time, please sign in to your onboarding account and continue from the 'KYC docs' step. Thank you!",
+      "message": "Namaste! Aapka onboarding 'KYC docs' step par ruka hua hai. Jab bhi aapke paas thoda time ho, apne onboarding account mein sign in karke 'KYC docs' step se aage continue kar lijiye. Dhanyavaad!"
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 865,
+      "output_tokens": 177
+    },
+    "user_prompt": "Language: Hinglish\nMessage type: friendly reminder (there was no rejection).\nWhere they stopped: the 'KYC docs' step.\nAsk them to sign in to their onboarding account and continue from the 'KYC docs' step."
+  },
+  "ff50126a8ce986e428806ae82cbfaf61f9d931854c6c0d28fa9a2b3c82463487": {
+    "created_utc": "2026-11-08T19:56:35Z",
+    "data": {
+      "english_back_translation": "Hello! Your onboarding has stopped at the 'Bank verification' step. The account number or IFSC is wrong, or the account is inactive, so the Re 1 test credit failed. Please sign in to your onboarding account, re-enter the account number and IFSC carefully, check that the account is active and can receive credits, then resubmit. Thank you!",
+      "message": "Namaste! Aapka onboarding 'Bank verification' step par ruk gaya hai. Account number ya IFSC galat hai, ya account inactive hai, isliye Re 1 ka test credit fail ho gaya. Kripya apne onboarding account mein sign in karein, account number aur IFSC dhyan se dobara bharein, check karein ki account active hai aur credit receive kar sakta hai, phir resubmit karein. Dhanyavaad!"
+    },
+    "effort": "low",
+    "model": "claude-opus-5-5",
+    "usage": {
+      "input_tokens": 940,
+      "output_tokens": 287
+    },
+    "user_prompt": "Language: Hinglish\nMessage type: fix needed to continue onboarding.\nWhere they stopped: the 'Bank verification' step.\nWhat went wrong (approved wording): Account number or IFSC is wrong, or the account is inactive, so the Re 1 test credit failed.\nWhat to do (approved wording): Re-enter the account number and IFSC carefully; check the account is active and can receive credits.\nThen ask them to sign in to their onboarding account and resubmit."
+  }
+}
