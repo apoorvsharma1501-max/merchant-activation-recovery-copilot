@@ -11,7 +11,7 @@ Synthetic data only. This is a drafting and decision-support prototype: **it nev
 | 2 | Deterministic rules, rule-based output table, tests | Done |
 | 3 | AI classification of blank-code reviewer text; multilingual nudges; safety checks; cache | Done; live run 2026-11-09 (51 calls, ~$0.49), answers cached |
 | 4 | Prioritisation, cause analytics, executive summary | Done |
-| 5 | Streamlit interface | Not started |
+| 5 | Streamlit interface | Done |
 
 ## Setup (Windows)
 
@@ -28,7 +28,15 @@ copy .env.example .env          # then put your key after ANTHROPIC_API_KEY=
 .venv\Scripts\python run_pipeline.py --llm off    # rules only, no AI
 .venv\Scripts\python run_pipeline.py --llm cache  # replay saved AI answers; never calls the API
 .venv\Scripts\python -m pytest                    # test suite (uses a fake model; free)
+.venv\Scripts\streamlit run app.py                # the app, at http://localhost:8501
 ```
+
+### The app (`app.py`)
+- **Sidebar:** pick the supplied workbook or upload one; AI mode (saved answers / rules only / live – live appears only when a key is set); Run analysis. A standing banner says nothing is sent.
+- **Overview:** headline counts, Expected monthly TPV at stake, outcome and step breakdowns, top three causes by count and by TPV, abandonment by step. Every chart has a table view.
+- **Application work queue:** search and filter; click a row for the full diagnosis, evidence, who decided (rule or AI), decision, priority and source record. Compliance and closure cases show a warning.
+- **Merchant nudge review:** the draft, its English back-translation, channel, WhatsApp opt-in and safety-check result. No send button; copy or download only.
+- **Evaluation & audit:** rule vs AI coverage, AI-classified cases, human-review cases, safety failures, provenance (model, prompt and rule versions, tokens), weight sensitivity, data issues, CSV/Excel download.
 
 Outputs:
 - `outputs/data_quality_report.md` – profile of the workbook
