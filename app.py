@@ -387,9 +387,8 @@ with tab_audit:
     d1.download_button("Full results (CSV)", res.to_csv(index=False).encode("utf-8-sig"), "p3_results.csv",
                        "text/csv", width="stretch")
     with tempfile.TemporaryDirectory() as tmp:
-        paths = write_outputs(run.data, res, run.audit, run.summary, Path(tmp), extra_sheets={
-            "work_queue": run.work_queue, "causes": run.causes,
-            "abandonment_by_step": run.steps, "priority_sensitivity": run.sensitivity})
+        paths = write_outputs(run.data, res, run.audit, run.summary, Path(tmp),
+                              extra_sheets=run.extra_sheets(), front_sheets=run.front_sheets())
         xlsx_bytes = paths["xlsx"].read_bytes()
     d2.download_button("Full results (Excel, all sheets)", xlsx_bytes, "p3_results.xlsx",
                        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", width="stretch")

@@ -37,10 +37,8 @@ def main() -> None:
     exec_md = out_dir / "executive_summary.md"
     exec_md.write_text(analytics.summary_markdown(run.executive, run.causes, run.steps, run.sensitivity,
                                                   run.results), encoding="utf-8")
-    paths = write_outputs(run.data, run.results, run.audit, run.summary, out_dir, extra_sheets={
-        "work_queue": run.work_queue, "causes": run.causes,
-        "abandonment_by_step": run.steps, "priority_sensitivity": run.sensitivity,
-    })
+    paths = write_outputs(run.data, run.results, run.audit, run.summary, out_dir,
+                          extra_sheets=run.extra_sheets(), front_sheets=run.front_sheets())
 
     print(json.dumps(run.summary, indent=2, default=str, ensure_ascii=False))
     print(json.dumps(run.executive, indent=2, default=str, ensure_ascii=False))

@@ -165,9 +165,27 @@ def coverage_summary(data: LoadedData, results: pd.DataFrame) -> dict:
     }
 
 
+def _format_sheet(ws, frame: pd.DataFrame) -> None:
+    """Readable widths, wrapped text, bold frozen header for the front sheets."""
+    from openpyxl.styles import Alignment, Font, PatternFill
+
+    for i, col in enumerate(frame.columns, start=1):
+        sample = [str(col)] + [str(v) for v in frame[col].head(80) if v is not None]
+        width = min(max(len(s) for s in sample) + 2, 70)
+        ws.column_dimensions[ws.cell(1, i).column_letter].width = max(width, 12)
+        ws.cell(1, i).font = Font(bold=True, color="FFFFFF")
+        ws.cell(1, i).fill = PatternFill("solid", fgColor="0B2A5B")
+    for row in ws.iter_rows(min_row=2):
+        for cell in row:
+            cell.alignment = Alignment(wrap_text=True, vertical="top")
+    ws.freeze_panes = "A2"
+
+
 def write_outputs(data: LoadedData, results: pd.DataFrame, audit: pd.DataFrame,
                   summary: dict, out_dir: Path = config.OUTPUT_DIR,
-                  extra_sheets: dict[str, pd.DataFrame] | None = None) -> dict[str, Path]:
+                  extra_sheets: dict[str, pd.DataFrame] | None = None,
+                  front_sheets: dict[str, pd.DataFrame] | None = None) -> dict[str, Path]:
+    """`front_sheets` are written first (for a reader skimming the file); the full table follows."""
     out_dir.mkdir(parents=True, exist_ok=True)
     csv_path = out_dir / "p3_results.csv"
     xlsx_path = out_dir / "p3_results.xlsx"
@@ -178,6 +196,9 @@ def write_outputs(data: LoadedData, results: pd.DataFrame, audit: pd.DataFrame,
     summary_rows = [(k, v if not isinstance(v, dict) else "; ".join(f"{a}: {b}" for a, b in v.items()))
                     for k, v in summary.items()]
     with pd.ExcelWriter(xlsx_path, engine="openpyxl") as xw:
+        for name, frame in (front_sheets or {}).items():
+            frame.to_excel(xw, sheet_name=name[:31], index=False)
+            _format_sheet(xw.sheets[name[:31]], frame)
         results.to_excel(xw, sheet_name="results", index=False)
         pd.DataFrame(summary_rows, columns=["metric", "value"]).to_excel(xw, sheet_name="summary", index=False)
         for name, frame in (extra_sheets or {}).items():
