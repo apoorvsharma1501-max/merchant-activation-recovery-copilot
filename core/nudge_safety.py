@@ -34,6 +34,13 @@ WORKAROUND_PATTERNS = [
     r"\bappeal\b", r"\bresubmit",
 ]
 
+# Content the brief never contains: reassurance, offers of help, implied support channels, marketing.
+EXTRA_CONTENT_PATTERNS = [
+    r"\bhere (if|for|to)\b", r"\bneed (any )?help\b", r"\bworr(y|ied|ies)\b", r"grow(ing)? your business",
+    r"feel free", r"reach out", r"don'?t hesitate", r"happy to (help|assist)", r"contact us",
+    r"support team", r"help ?desk",
+]
+
 _SCRIPT_RANGES = {
     "devanagari": (0x0900, 0x097F),
     "tamil": (0x0B80, 0x0BFF),
@@ -95,6 +102,9 @@ def check(message: str, back_translation: str, language: str, action: Recommende
     promises = _hits(PROMISE_PATTERNS, back_translation, brief)
     if promises:
         issues.append(f"possible promise or timeline: {promises}")
+    extras = _hits(EXTRA_CONTENT_PATTERNS, back_translation, brief)
+    if extras:
+        issues.append(f"adds content not in the brief: {extras}")
 
     if action is RecommendedAction.COMPLIANCE_ROUTE or sensitive:
         leaks = _hits(COMPLIANCE_LEAK_PATTERNS, back_translation, "")

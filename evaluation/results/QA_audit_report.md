@@ -289,5 +289,13 @@ Caveats: TPV is self-declared and is not revenue. In 21 rows the inactivity valu
 |---|---|---|
 | P0-1 Commit evaluation files | **Done** (`7eddd1e`) | Stress test, its saved answers, labelling tool, this report |
 | P0-3 / E04 Withheld case showed WhatsApp | **Fixed** | `core/output_builder.py`: when `nudge_generator.should_withhold()` is true, channel = "Not applicable". This also covers AI-uncertain cases, not only A3051. A draft that merely *failed a safety check* keeps its channel, because the case is still actionable after a person rewrites it. Outputs regenerated from saved answers (0 API calls); diff vs previous output: **only** A3051 `recommended_channel` WhatsApp → Not applicable. Test added in `evaluation/test_ai.py`. Blank labelling sheet rebuilt (it had 0 filled cells). |
-| P0-2 Human labelling of 30 cases | Open (student) | Sheet ready |
+| P1-5 / C04 Uncertain AI → recoverable | **Fixed** | `core/rules.py::decide`: an AI-classified fixable code with `human_review` → NEEDS_HUMAN_REVIEW (suggested code kept). Stress cases S09, S19–S21, S40, S41 now go to review; real data unaffected (0 such rows). |
+| P1-6 Keyword backstop gaps | **Fixed** | `config.SENSITIVE_TEXT_PATTERNS` widened. Stress test (re-run from cache, 0 API calls): backstop alone now catches **8/8** sensitive notes (was 2/8); non-sensitive notes it flags unchanged at 2 (S34, S35). |
+| P1-7 / E09 Weighting misdescribed | **Documented, formula unchanged** | Effective TPV share computed and shown (executive summary, app, README): about 86%. Changing the formula is left to the student as a business decision. |
+| P1-8 / A07 Inactivity > account age | **Fixed (flag only)** | `core/data_loader.py`: 21 WARNINGs and a `data_flags` entry per row; values not altered. |
+| P1-9 / D07 Extra content in drafts | **Fixed** | Prompt `nudge-v2` forbids reassurance, help offers and marketing; `nudge_safety.check` blocks them. Live re-run: extra-content drafts **6 → 0** (the audit's regex found 3; A3030, A3071 and A3087 also had "grow your business"). 0 safety failures, 0 retries. |
+| P1-10 / B06 Code/text contradiction | **Fixed** | `core/ai_diagnosis.check_consistency`: AI reads the text on coded rows; a different catalog code → human review, original code kept. Live: all 25 distinct coded notes read; AI agreed on 47/49 rows, UNKNOWN on 2 (R12 "Compliance review pending"), 0 flagged. |
+| P1 live re-run | Done | 70 API calls, 78,289 in / 15,522 out tokens (about $0.62). Decisions, channels, ranks, tiers **unchanged**; only message texts, prompt version and data flags changed. |
+| P1-11 Native-speaker review | Open (student) | — |
+| P0-2 Human labelling of 30 cases | Open (student) | Sheet rebuilt with the v2 drafts (it had 0 filled cells) |
 | P0-4 Failure log, written answers, video | Open | — |

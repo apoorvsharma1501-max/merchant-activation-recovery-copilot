@@ -3,6 +3,7 @@
 Only structural settings (sheet/column names, status values, channel labels) and
 explicit prototype assumptions (marked ASSUMPTION) belong in this file.
 """
+from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -62,7 +63,19 @@ SENSITIVE_TEXT_PATTERNS = [
     r"restrict", r"prohibit", r"not supported", r"support nahi", r"sanction",
     r"screening", r"compliance", r"fraud", r"\baml\b", r"blacklist",
     r"negative list", r"gambl",
+    # Added after the stress test found the backstop missed these (only the AI caught them):
+    r"\bbet(s|ting)?\b", r"\bofac\b", r"\bpep\b", r"adverse media", r"high[- ]risk",
+    r"risk team", r"\bl2\b", r"do not process", r"\bflagged\b",
 ]
+
+# Snapshot date of the data pack (README sheet: "30 Sep 2026 for all datasets"). Used only to
+# flag rows whose inactivity is longer than the account has existed; values are never changed.
+SNAPSHOT_DATE = date(2026, 9, 30)
+SIGNUP_DATE_FORMAT = "%d %b %Y"
+
+# When AI is on, also ask it to read reviewer text on rows that already have a code; if it
+# points to a different catalog reason, the row goes to human review (handover §5.2 Rule 1).
+CHECK_CODE_TEXT_CONSISTENCY = True
 
 # --- LLM (Phase 3) ---------------------------------------------------------------
 PROMPTS_DIR = ROOT / "prompts"
@@ -79,7 +92,7 @@ LLM_MAX_TOKENS = 8000             # includes thinking tokens
 LLM_USE_REFUSAL_FALLBACK = True
 
 DIAGNOSIS_PROMPT_VERSION = "diag-v1"
-NUDGE_PROMPT_VERSION = "nudge-v1"
+NUDGE_PROMPT_VERSION = "nudge-v2"  # v2: forbids reassurance / help offers / marketing lines
 
 NUDGE_MAX_CHARS = 900
 

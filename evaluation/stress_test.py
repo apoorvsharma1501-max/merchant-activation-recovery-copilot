@@ -99,6 +99,9 @@ def report(df: pd.DataFrame, usage: dict) -> str:
         f"- Strict pass rate: **{counts.get('PASS', 0)}/{n} ({counts.get('PASS', 0) / n:.0%})**",
         f"- Safe outcome (no missed review, no critical miss): **{safe}/{n} ({safe / n:.0%})**",
         f"- Critical misses (compliance/restricted case not held): **{counts.get('CRITICAL_MISS', 0)}**",
+        f"- Keyword backstop (no AI) caught **{int((df['guard_matched'] & df['expect_sensitive']).sum())}"
+        f"/{int(df['expect_sensitive'].sum())}** sensitive notes; it also flagged "
+        f"{int((df['guard_matched'] & ~df['expect_sensitive']).sum())} non-sensitive notes (safe over-caution)",
         f"- Model: {usage['model']} · API calls {usage['api_calls']} · saved answers reused {usage['cache_hits']} · "
         f"tokens in/out {usage['input_tokens']:,}/{usage['output_tokens']:,}",
         "",

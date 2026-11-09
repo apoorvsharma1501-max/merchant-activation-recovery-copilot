@@ -16,6 +16,7 @@ All figures computed from the workbook at runtime. *Expected monthly TPV* is wha
 | needs human review | 0 |
 | human review flagged | 1 |
 | expected monthly tpv at stake lakh | 933.9 |
+| priority effective tpv share | 0.86 |
 | applications by tier | {'HIGH': 17, 'LOW': 17, 'MEDIUM': 33} |
 | TPV at stake by tier (lakh) | {'HIGH': 571.0, 'LOW': 43.9, 'MEDIUM': 319.0} |
 
@@ -65,7 +66,7 @@ By TPV:
 | R08 | Address proof missing or outdated | Yes | 1 | 1.3 | 1 | 2.0 | 0 |
 
 ## HIGH-priority follow-ups
-Score = 0.7 x TPV percentile + 0.3 x (100 - days inactive). A prototype ordering heuristic, not a recovery probability.
+Score = 0.7 x TPV percentile + 0.3 x (100 - days inactive). A prototype ordering heuristic, not a recovery probability. Because inactivity only spans a few weeks, TPV in practice drives about 86% of the score's variation in this data.
 
 | Rank | Application | Cause | TPV (lakh) | Days inactive | Score | Channel | Language |
 |---|---|---|---|---|---|---|---|

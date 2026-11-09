@@ -368,6 +368,11 @@ with tab_audit:
         st.success("No drafted message failed the automatic checks. (Checks do not prove translation quality.)")
 
     st.subheader("Priority weight sensitivity")
+    share = ex.get("priority_effective_tpv_share")
+    if share is not None:
+        st.caption(f"Nominal weights {config.PRIORITY_WEIGHT_TPV:.0%} TPV / {config.PRIORITY_WEIGHT_RECENCY:.0%} "
+                   f"recency. Because inactivity only spans a few weeks, TPV in practice drives about "
+                   f"**{share:.0%}** of the score's variation in this data.")
     st.dataframe(run.sensitivity, hide_index=True, width="stretch")
 
     st.subheader("Data validation issues")

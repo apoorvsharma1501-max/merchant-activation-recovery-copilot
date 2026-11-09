@@ -15,6 +15,7 @@ Source: `Buildathon_Student_Data_Pack.xlsx` (generated at runtime; nothing hard-
 | Days since activity range | 0.0 to 40.0 |
 | Days missing/invalid | 0 |
 | Activated rows carrying a code or reviewer text | 0 |
+| Rows where inactivity > days since signup (snapshot) | 21 |
 
 ## Status
 | Status | Count |
@@ -78,5 +79,27 @@ Source: `Buildathon_Student_Data_Pack.xlsx` (generated at runtime; nothing hard-
 | Yes | 70 |
 | No | 30 |
 
-## Validation issues (0)
-None found.
+## Validation issues (21)
+| Severity | Sheet | Row | Field | Message |
+|---|---|---|---|---|
+| WARNING | P3_Applications | A3001 | days_since_last_activity | inactivity (38 d) exceeds days since signup (37 d) at snapshot 30 Sep 2026; recency-based priority is unreliable for this row |
+| WARNING | P3_Applications | A3006 | days_since_last_activity | inactivity (16 d) exceeds days since signup (7 d) at snapshot 30 Sep 2026; recency-based priority is unreliable for this row |
+| WARNING | P3_Applications | A3008 | days_since_last_activity | inactivity (21 d) exceeds days since signup (8 d) at snapshot 30 Sep 2026; recency-based priority is unreliable for this row |
+| WARNING | P3_Applications | A3016 | days_since_last_activity | inactivity (37 d) exceeds days since signup (8 d) at snapshot 30 Sep 2026; recency-based priority is unreliable for this row |
+| WARNING | P3_Applications | A3026 | days_since_last_activity | inactivity (27 d) exceeds days since signup (13 d) at snapshot 30 Sep 2026; recency-based priority is unreliable for this row |
+| WARNING | P3_Applications | A3030 | days_since_last_activity | inactivity (34 d) exceeds days since signup (15 d) at snapshot 30 Sep 2026; recency-based priority is unreliable for this row |
+| WARNING | P3_Applications | A3034 | days_since_last_activity | inactivity (20 d) exceeds days since signup (14 d) at snapshot 30 Sep 2026; recency-based priority is unreliable for this row |
+| WARNING | P3_Applications | A3044 | days_since_last_activity | inactivity (11 d) exceeds days since signup (5 d) at snapshot 30 Sep 2026; recency-based priority is unreliable for this row |
+| WARNING | P3_Applications | A3047 | days_since_last_activity | inactivity (38 d) exceeds days since signup (16 d) at snapshot 30 Sep 2026; recency-based priority is unreliable for this row |
+| WARNING | P3_Applications | A3049 | days_since_last_activity | inactivity (20 d) exceeds days since signup (6 d) at snapshot 30 Sep 2026; recency-based priority is unreliable for this row |
+| WARNING | P3_Applications | A3050 | days_since_last_activity | inactivity (13 d) exceeds days since signup (12 d) at snapshot 30 Sep 2026; recency-based priority is unreliable for this row |
+| WARNING | P3_Applications | A3076 | days_since_last_activity | inactivity (37 d) exceeds days since signup (32 d) at snapshot 30 Sep 2026; recency-based priority is unreliable for this row |
+| WARNING | P3_Applications | A3080 | days_since_last_activity | inactivity (33 d) exceeds days since signup (17 d) at snapshot 30 Sep 2026; recency-based priority is unreliable for this row |
+| WARNING | P3_Applications | A3081 | days_since_last_activity | inactivity (13 d) exceeds days since signup (7 d) at snapshot 30 Sep 2026; recency-based priority is unreliable for this row |
+| WARNING | P3_Applications | A3082 | days_since_last_activity | inactivity (32 d) exceeds days since signup (30 d) at snapshot 30 Sep 2026; recency-based priority is unreliable for this row |
+| WARNING | P3_Applications | A3083 | days_since_last_activity | inactivity (29 d) exceeds days since signup (8 d) at snapshot 30 Sep 2026; recency-based priority is unreliable for this row |
+| WARNING | P3_Applications | A3087 | days_since_last_activity | inactivity (16 d) exceeds days since signup (8 d) at snapshot 30 Sep 2026; recency-based priority is unreliable for this row |
+| WARNING | P3_Applications | A3089 | days_since_last_activity | inactivity (11 d) exceeds days since signup (8 d) at snapshot 30 Sep 2026; recency-based priority is unreliable for this row |
+| WARNING | P3_Applications | A3095 | days_since_last_activity | inactivity (29 d) exceeds days since signup (7 d) at snapshot 30 Sep 2026; recency-based priority is unreliable for this row |
+| WARNING | P3_Applications | A3097 | days_since_last_activity | inactivity (25 d) exceeds days since signup (10 d) at snapshot 30 Sep 2026; recency-based priority is unreliable for this row |
+| WARNING | P3_Applications | A3098 | days_since_last_activity | inactivity (26 d) exceeds days since signup (7 d) at snapshot 30 Sep 2026; recency-based priority is unreliable for this row |

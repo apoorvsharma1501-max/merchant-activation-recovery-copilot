@@ -47,7 +47,7 @@ Outputs:
 
 ## Prioritisation (prototype heuristic)
 
-Only RECOVERABLE rows are ranked. `priority_score = 0.7 × TPV percentile + 0.3 × (100 − days inactive)`; weights in `config.py`. Tiers: top 25% HIGH, middle 50% MEDIUM, bottom 25% LOW. This orders follow-up work; it is **not** a recovery probability. The `priority_sensitivity` sheet compares TPV-only, recency-only and other weightings (top-10 overlap and rank correlation with the base order).
+Only RECOVERABLE rows are ranked. `priority_score = 0.7 × TPV percentile + 0.3 × (100 − days inactive)`; weights in `config.py`. Tiers: top 25% HIGH, middle 50% MEDIUM, bottom 25% LOW. This orders follow-up work; it is **not** a recovery probability. **In practice TPV dominates:** inactivity only spans 0–40 days here, so recency's component moves far less than TPV's and TPV drives about 86% of the score's variation (`priority_effective_tpv_share` in the executive summary). The `priority_sensitivity` sheet compares TPV-only, recency-only and other weightings (top-10 overlap and rank correlation with the base order).
 
 ## What AI does, and what it does not
 
@@ -68,10 +68,12 @@ Model: `claude-opus-5-5` (Anthropic) with JSON-schema structured output. Effort 
 - The code must be in the catalog (enforced by the schema and again in code).
 - `evidence_quote` must appear word-for-word in the note, or the answer is rejected.
 - One retry with the rejection reason; then human review.
-- A keyword guard for restricted/compliance wording can only add caution. Sensitive cases (e.g. A3051 → R10) are closed/routed but **flagged for human review with no message drafted**.
+- A keyword guard for restricted/compliance wording can only add caution. Sensitive cases (e.g. A3051 → R10) are closed/routed but **flagged for human review with no message drafted** and no outreach channel. After the stress test the list was widened (betting, OFAC, PEP, adverse media, high-risk, risk team, L2, do not process, flagged); it now catches 8/8 sensitive stress notes on its own.
+- If the AI suggests a fixable code but is unsure, the case goes to **human review**: it is not counted as recoverable, not ranked, and not messaged.
+- **Code/text consistency:** on rows that already have a code, the AI also reads the reviewer text. If it points to a *different* catalog reason, the row goes to human review with the original code kept. This can only add caution. In the supplied data it agreed on 47/49 coded rows and returned UNKNOWN on 2 ("Compliance review pending"), so nothing was flagged.
 
 ### Guardrails on messages (`core/nudge_safety.py`)
-Every draft is checked on the message and its English back-translation for: links, emails, phone numbers, internal codes, numbers not in the brief, promises/timelines, compliance disclosure (R12 and sensitive cases), workarounds (R10), missing step name (reminders), wrong script for the language, and length. A failing draft is retried once; if it still fails it is kept for reviewers but marked `NO_NUDGE_HUMAN_REVIEW`. The English R12 text is fixed and never generated. These checks catch known failure types; they do **not** prove translation quality – a person reviews every draft.
+Every draft is checked on the message and its English back-translation for: links, emails, phone numbers, internal codes, numbers not in the brief, promises/timelines, compliance disclosure (R12 and sensitive cases), workarounds (R10), content not in the brief (reassurance, offers of help, marketing lines), missing step name (reminders), wrong script for the language, and length. A failing draft is retried once; if it still fails it is kept for reviewers but marked `NO_NUDGE_HUMAN_REVIEW`. The English R12 text is fixed and never generated. These checks catch known failure types; they do **not** prove translation quality – a person reviews every draft.
 
 ## How diagnosis works
 
@@ -87,10 +89,14 @@ Every draft is checked on the message and its English back-translation for: link
 - "Expected monthly TPV at stake" is the expected TPV of applications classified RECOVERABLE. It is not recovered TPV, revenue, or a forecast.
 - `typical_days_to_fix` is reference only and is never promised to merchants.
 - Without AI, only English rows get a message (fixed templates from catalog wording); other languages are `NOT_GENERATED` rather than silently sent in English.
+- Snapshot date is 30 Sep 2026 (README sheet of the data pack). Rows where `days_since_last_activity` is longer than the days since `signup_date` are **flagged, not changed** (21 of 100 rows; see `data_flags` and the data-quality report). Recency-based priority is unreliable for those rows.
 
 ## Known limitations
 
-- Code/message contradiction checks for already-coded rows are not implemented.
+- The code/text consistency check needs AI; in rule-only mode coded rows are trusted as given.
+- 21 rows have inactivity longer than the account's age; flagged but used as given.
+- Reminders (R13) have no minimum-inactivity threshold; the data defines none (shortest is 5 days).
+- `attempts` and `support_contacts` are not used in prioritisation.
 - Script and keyword checks cannot judge translation quality; native-speaker review of Tamil, Kannada and Marathi drafts is still needed.
 - Priority weights are an assumption, not fitted to outcomes (no recovery labels exist in the data).
 - "Expected monthly TPV" is self-declared at signup and may be optimistic.

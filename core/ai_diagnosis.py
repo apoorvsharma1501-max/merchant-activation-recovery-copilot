@@ -109,4 +109,24 @@ def classify(row: dict, rule_dx: rules.Diagnosis, catalog: dict[str, CatalogEntr
                            sensitive=sensitive, model=model, prompt_version=pv, ai_explanation=ai.explanation)
 
 
-__all__ = ["classify", "validate", "build_user_prompt", "CODE_NEEDS_HUMAN_REVIEW"]
+def check_consistency(row: dict, rule_dx: rules.Diagnosis, catalog: dict[str, CatalogEntry],
+                      llm: CachedLLM) -> rules.Diagnosis:
+    """Handover §5.2 Rule 1: a known code is kept, but if the reviewer text clearly points to a
+    DIFFERENT catalog reason, the row goes to human review (original code retained).
+
+    The AI reads the text exactly as for blank-code rows (same prompt, so answers are shared via the
+    cache). It never replaces the code. If the AI is unavailable, fails validation or returns UNKNOWN,
+    the rule diagnosis stands unchanged - this check can only add caution.
+    """
+    probe = dict(row, rejection_code=None)  # classify the text on its own
+    ai_dx = classify(probe, rules.diagnose(probe, catalog), catalog, llm)
+    if ai_dx.method is not DiagnosisMethod.LLM_TEXT_CLASSIFICATION or ai_dx.code in (CODE_UNKNOWN, rule_dx.code):
+        return rule_dx
+    reason = (f"Reviewer text suggests {ai_dx.code} ({catalog[ai_dx.code].reviewer_reason}), "
+              f"not the recorded {rule_dx.code}: {ai_dx.evidence}")
+    return replace(rule_dx, status=DiagnosisStatus.NEEDS_HUMAN_REVIEW, human_review=True,
+                   review_reasons=rule_dx.review_reasons + (reason,), sensitive=rule_dx.sensitive or ai_dx.sensitive,
+                   model=ai_dx.model, prompt_version=ai_dx.prompt_version, ai_explanation=ai_dx.ai_explanation)
+
+
+__all__ = ["classify", "check_consistency", "validate", "build_user_prompt", "CODE_NEEDS_HUMAN_REVIEW"]

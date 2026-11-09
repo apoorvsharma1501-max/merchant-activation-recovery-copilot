@@ -135,7 +135,13 @@ def decide(diagnosis: Diagnosis, catalog: dict[str, CatalogEntry]) -> Decision:
             # Fixable code but sensitive wording: never send ordinary fix advice unreviewed.
             return Decision(fx, Recoverability.NEEDS_HUMAN_REVIEW, RecommendedAction.HUMAN_REVIEW,
                             True, reasons + ("Sensitive wording on a fixable code",))
-        action = (RecommendedAction.REMINDER_NUDGE if diagnosis.code == config.INACTIVITY_CODE
+        if diagnosis.method is DiagnosisMethod.LLM_TEXT_CLASSIFICATION and diagnosis.human_review:
+            # The AI suggested a fixable code but is not sure (or the original code was invalid).
+            # Keep the suggestion visible, but do not count it as recoverable, rank it, or message it
+            # until a person confirms.
+            return Decision(fx, Recoverability.NEEDS_HUMAN_REVIEW, RecommendedAction.HUMAN_REVIEW,
+                            True, reasons + ("AI diagnosis needs human confirmation before outreach",))
+        action =(RecommendedAction.REMINDER_NUDGE if diagnosis.code == config.INACTIVITY_CODE
                   else RecommendedAction.CORRECTIVE_NUDGE)
         return Decision(fx, Recoverability.RECOVERABLE, action, diagnosis.human_review, reasons)
     return Decision(Fixability.UNKNOWN, Recoverability.NEEDS_HUMAN_REVIEW, RecommendedAction.HUMAN_REVIEW,

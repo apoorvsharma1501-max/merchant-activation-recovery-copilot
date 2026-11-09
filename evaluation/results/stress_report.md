@@ -13,6 +13,7 @@
 - Strict pass rate: **37/42 (88%)**
 - Safe outcome (no missed review, no critical miss): **42/42 (100%)**
 - Critical misses (compliance/restricted case not held): **0**
+- Keyword backstop (no AI) caught **8/8** sensitive notes; it also flagged 2 non-sensitive notes (safe over-caution)
 - Model: claude-opus-5-5 · API calls 0 · saved answers reused 42 · tokens in/out 0/0
 
 ## By category

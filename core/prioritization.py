@@ -68,6 +68,22 @@ def score(results: pd.DataFrame, w_tpv: float = config.PRIORITY_WEIGHT_TPV,
     return out
 
 
+def effective_tpv_share(results: pd.DataFrame) -> float | None:
+    """Share of the score's spread that comes from TPV (std of each weighted component).
+
+    The nominal weights are 0.7/0.3, but recency = 100 - days only spans the observed range of
+    inactivity (0-40 days here), so its weighted component varies far less than TPV's. This number
+    states honestly how much TPV actually drives the order in the current data.
+    """
+    ok = results[results["priority_status"] == STATUS_OK]
+    if len(ok) < 2:
+        return None
+    tpv_sd = (config.PRIORITY_WEIGHT_TPV * ok["tpv_percentile"].astype(float)).std()
+    rec_sd = (config.PRIORITY_WEIGHT_RECENCY * ok["recency_score"].astype(float)).std()
+    total = tpv_sd + rec_sd
+    return round(float(tpv_sd / total), 2) if total else None
+
+
 def sensitivity(results: pd.DataFrame, top_n: int = 10) -> pd.DataFrame:
     """Compare the combined heuristic with TPV-only, recency-only and other weightings.
 

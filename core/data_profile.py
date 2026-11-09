@@ -32,7 +32,8 @@ def profile(data: LoadedData) -> dict:
         "tpv_missing_or_invalid": int(tpv.isna().sum()),
         "days_range": (days.min(), days.max()),
         "days_missing_or_invalid": int(days.isna().sum()),
-        "activated_with_code_or_text": int((apps["application_status"].eq(config.STATUS_ACTIVATED)
+        "inactivity_exceeds_account_age": int(apps["activity_consistency_flag"].notna().sum()),
+        "activated_with_code_or_text":int((apps["application_status"].eq(config.STATUS_ACTIVATED)
                                             & (~blank | has_msg)).sum()),
         "issues": [i.__dict__ for i in data.issues],
     }
@@ -59,6 +60,7 @@ def to_markdown(p: dict) -> str:
         f"| Days since activity range | {p['days_range'][0]} to {p['days_range'][1]} |",
         f"| Days missing/invalid | {p['days_missing_or_invalid']} |",
         f"| Activated rows carrying a code or reviewer text | {p['activated_with_code_or_text']} |",
+        f"| Rows where inactivity > days since signup (snapshot) | {p['inactivity_exceeds_account_age']} |",
         "",
         "## Status", "| Status | Count |", "|---|---|", kv(p["status_counts"]),
         "",

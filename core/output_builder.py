@@ -10,7 +10,7 @@ import config
 from core import ai_diagnosis, nudge_generator, prioritization, rules
 from core.data_loader import LoadedData
 from core.llm_client import CachedLLM
-from schemas.labels import NudgeStatus, Recoverability
+from schemas.labels import DiagnosisStatus, NudgeStatus, Recoverability
 
 OUTPUT_COLUMNS = [
     # source fields (original values, unmodified)
@@ -63,6 +63,9 @@ def build_results(data: LoadedData, llm: CachedLLM | None = None,
         dx = rules.diagnose(row, data.catalog)
         if dx.pending_ai and use_ai:
             dx = ai_diagnosis.classify(row, dx, data.catalog, llm)
+        elif (use_ai and config.CHECK_CODE_TEXT_CONSISTENCY and dx.status is DiagnosisStatus.KNOWN_CODE
+              and row.get("rejection_message")):
+            dx = ai_diagnosis.check_consistency(row, dx, data.catalog, llm)
         dec = rules.decide(dx, data.catalog)
         entry = data.catalog.get(dx.code)
         language, lang_status = rules.language_for(row["preferred_language"])
@@ -80,6 +83,8 @@ def build_results(data: LoadedData, llm: CachedLLM | None = None,
             reason_text = "Undetermined - human review required"
 
         flags = [row[f"{c}__flag"] for c in config.APPLICATION_NUMERIC_COLUMNS if row[f"{c}__flag"]]
+        if row.get("activity_consistency_flag"):
+            flags.append(row["activity_consistency_flag"])
         if row["whatsapp_opt_in_normalized"] in {"Missing", "Unrecognized"}:
             flags.append(f"whatsapp_opted_in {row['whatsapp_opt_in_normalized'].lower()}")
 

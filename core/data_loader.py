@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import math
 from dataclasses import dataclass, field
+from datetime import datetime
 from pathlib import Path
 
 import pandas as pd
@@ -161,6 +162,26 @@ def _clean_applications(raw: pd.DataFrame, issues: list[DataIssue]) -> pd.DataFr
         if lang not in config.SUPPORTED_LANGUAGES:
             issues.append(DataIssue("WARNING", sheet, app_id, "preferred_language",
                                     f"Unsupported or missing language {lang!r}"))
+
+    # Cross-field check: inactivity cannot be longer than the account has existed at the snapshot.
+    # Flag only; the values are kept as given.
+    consistency = []
+    for app_id, signup, days in zip(ids, clean["signup_date"], clean["days_since_last_activity"]):
+        flag = None
+        if signup:
+            try:
+                age = (config.SNAPSHOT_DATE - datetime.strptime(signup, config.SIGNUP_DATE_FORMAT).date()).days
+            except ValueError:
+                flag = "signup_date unparseable"
+                issues.append(DataIssue("WARNING", sheet, app_id, "signup_date", f"Unparseable date {signup!r}"))
+            else:
+                if days is not None and days > age:
+                    flag = f"inactivity ({days:g} d) exceeds days since signup ({age} d)"
+                    issues.append(DataIssue("WARNING", sheet, app_id, "days_since_last_activity",
+                                            f"{flag} at snapshot {config.SNAPSHOT_DATE:%d %b %Y}; "
+                                            "recency-based priority is unreliable for this row"))
+        consistency.append(flag)
+    clean["activity_consistency_flag"] = _obj(consistency)
     return clean
 
 

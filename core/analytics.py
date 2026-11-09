@@ -9,6 +9,7 @@ from __future__ import annotations
 import pandas as pd
 
 import config
+from core import prioritization
 from core.data_loader import LoadedData
 from schemas.labels import CODE_NEEDS_HUMAN_REVIEW, CODE_UNKNOWN, Recoverability
 
@@ -87,7 +88,8 @@ def executive_summary(data: LoadedData, results: pd.DataFrame, causes: pd.DataFr
         "needs_human_review": int(rec.get(Recoverability.NEEDS_HUMAN_REVIEW.value, 0)),
         "human_review_flagged": int(results["human_review_required"].sum()),
         "expected_monthly_tpv_at_stake_lakh": round(float(_tpv(recov).sum()), 1),
-        "tpv_at_stake_by_tier_lakh": {k: round(float(v), 1) for k, v in tiers["sum"].items()},
+        "priority_effective_tpv_share": prioritization.effective_tpv_share(results),
+        "tpv_at_stake_by_tier_lakh":{k: round(float(v), 1) for k, v in tiers["sum"].items()},
         "applications_by_tier": {k: int(v) for k, v in tiers["count"].items()},
         "top3_causes_by_count": fmt(top_causes(causes, "applications"), "applications"),
         "top3_causes_by_tpv": fmt(top_causes(causes, "expected_monthly_tpv_represented_lakh"),
@@ -141,7 +143,9 @@ def summary_markdown(s: dict, causes: pd.DataFrame, steps: pd.DataFrame, sens: p
         "",
         "## HIGH-priority follow-ups",
         f"Score = {config.PRIORITY_WEIGHT_TPV} x TPV percentile + {config.PRIORITY_WEIGHT_RECENCY} x "
-        "(100 - days inactive). A prototype ordering heuristic, not a recovery probability.",
+        "(100 - days inactive). A prototype ordering heuristic, not a recovery probability. "
+        f"Because inactivity only spans a few weeks, TPV in practice drives about "
+        f"{(s['priority_effective_tpv_share'] or 0):.0%} of the score's variation in this data.",
         "",
         "| Rank | Application | Cause | TPV (lakh) | Days inactive | Score | Channel | Language |",
         "|---|---|---|---|---|---|---|---|",
