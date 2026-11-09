@@ -202,15 +202,22 @@ with tab_overview:
     tpv_step = pd.to_numeric(res["expected_monthly_tpv_inr_lakh"]).groupby(res["step_reached"]).sum().to_dict()
     stages, drops = ui.funnel_stages(len(apps), counts)
     worst = max(drops, key=lambda d: d[1]) if drops else None
+    stuck_total = sum(n for _, n in drops)
     html(ui.section("Onboarding funnel",
-                    f"How far the {len(apps)} applicants got, assuming the steps run in order. "
-                    + (f"The biggest drop is at {ui.STEP_LABEL[worst[0]]}: {worst[1]} merchants." if worst else "")))
+                    f"Each stage shows how many merchants are still pending there, as a share of the {stuck_total} "
+                    "stuck applications. Bar width = merchants who reached the step (steps assumed to run in order). "
+                    + (f"Biggest backlog: {ui.STEP_LABEL[worst[0]]}, {worst[1]} merchants "
+                       f"({worst[1] / stuck_total:.0%})." if worst and stuck_total else "")))
     f_left, f_right = st.columns([1.6, 1])
     with f_left:
         st.plotly_chart(ui.funnel_figure(stages, FONT_STACK.replace("'", "")), width="stretch",
                         config={"displayModeBar": False}, key="funnel")
         with st.expander("Table view"):
-            st.dataframe(pd.DataFrame(stages, columns=["Stage", "Applicants"]), hide_index=True, width="stretch")
+            tbl = pd.DataFrame(stages, columns=["Step", "Reached the step", "Pending here"])
+            tbl["Share of stuck"] = [("" if s == ui.STEPS[-1] else f"{p / stuck_total:.0%}") for s, _, p in stages]
+            tbl.loc[tbl["Step"] == ui.STEPS[-1], "Pending here"] = None
+            tbl["Step"] = tbl["Step"].map(ui.STEP_LABEL)
+            st.dataframe(tbl, hide_index=True, width="stretch")
     with f_right:
         html(ui.dropoff_panel(drops, tpv_step))
 

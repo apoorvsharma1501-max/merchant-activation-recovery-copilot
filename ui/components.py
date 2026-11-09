@@ -48,33 +48,44 @@ FUNNEL_STAGE_LABEL = ["Signed up", "Business details done", "KYC documents done"
 FUNNEL_COLORS = ["#2F6BFF", "#4C6EF5", "#7950F2", "#AE3EC9", "#12B886"]
 
 
-def funnel_stages(total: int, stuck_at: dict[str, int]) -> tuple[list[tuple[str, int]], list[tuple[str, int]]]:
-    """Cumulative funnel from 'last step reached', assuming the steps run in order.
+def funnel_stages(total: int, stuck_at: dict[str, int]) -> tuple[list[tuple[str, int, int]], list[tuple[str, int]]]:
+    """Funnel from 'last step reached', assuming the steps run in order.
 
-    Everyone signs up; each later stage keeps those not stuck at the previous step. Returns the
-    (stage, applicants) list and the (step, merchants stuck there) drop-offs.
+    Returns (step, merchants who reached it, merchants still pending there) for each step, with the
+    final 'Activated' step's pending value being the live merchants, and the (step, pending) list.
     """
-    stages, drops, remaining = [(FUNNEL_STAGE_LABEL[0], total)], [], total
-    for i, step in enumerate(STEPS[:-1]):
-        stuck = stuck_at.get(step, 0)
-        remaining -= stuck
-        drops.append((step, stuck))
-        stages.append((FUNNEL_STAGE_LABEL[i + 1], remaining))
-    return stages, drops
+    stages, pending, reached = [], [], total
+    for step in STEPS:
+        here = stuck_at.get(step, 0)
+        stages.append((step, reached, here))
+        if step != STEPS[-1]:
+            pending.append((step, here))
+            reached -= here
+    return stages, pending
 
 
-def funnel_figure(stages: list[tuple[str, int]], font_family: str):
+def funnel_figure(stages: list[tuple[str, int, int]], font_family: str):
+    """Bar width = merchants who reached the step; label = merchants still pending there, as % of all stuck."""
     import plotly.graph_objects as go
 
-    labels = [s for s, _ in stages]
-    values = [n for _, n in stages]
+    stuck_total = sum(p for s, _, p in stages if s != STEPS[-1]) or 1
+    labels = [f"{STEP_EMOJI[s]}  {STEP_LABEL[s]}" for s, _, _ in stages]
+    reached = [r for _, r, _ in stages]
+    text, hover = [], []
+    for s, r, p in stages:
+        if s == STEPS[-1]:
+            text.append(f"<b>{p} live</b>")
+            hover.append(f"{p} merchants activated")
+        else:
+            text.append(f"<b>{p} pending</b>  ·  {p / stuck_total:.0%} of stuck")
+            hover.append(f"{r} reached this step<br>{p} still pending here = {p / stuck_total:.0%} of the "
+                         f"{stuck_total} stuck applications")
     fig = go.Figure(go.Funnel(
-        y=labels, x=values, texttemplate="<b>%{value}</b>  ·  %{percentInitial:.0%}", textposition="inside",
-        textfont=dict(color="#FFFFFF", size=16, family=font_family),
-        marker=dict(color=FUNNEL_COLORS[:len(values)]),
+        y=labels, x=reached, text=text, texttemplate="%{text}", textposition="inside",
+        textfont=dict(color="#FFFFFF", size=15, family=font_family),
+        marker=dict(color=FUNNEL_COLORS[:len(reached)]),
         connector=dict(line=dict(color=LINE, width=1), fillcolor="#EEF2FA"),
-        hovertemplate="%{y}<br>%{x} applicants · %{percentInitial:.0%} of sign-ups"
-                      "<br>%{percentPrevious:.0%} of the previous stage<extra></extra>",
+        customdata=hover, hovertemplate="%{customdata}<extra></extra>",
     ))
     fig.update_layout(height=360, margin=dict(l=8, r=8, t=8, b=8), paper_bgcolor="rgba(0,0,0,0)",
                       plot_bgcolor="rgba(0,0,0,0)", font=dict(family=font_family, color=NAVY, size=14),
@@ -88,19 +99,21 @@ def dropoff_panel(drops: list[tuple[str, int]], tpv: dict[str, float]) -> str:
     rows = []
     for step, n in sorted(drops, key=lambda d: -d[1]):
         width = int(100 * n / total)
+        share = n / total
         rows.append(f"""
 <div style="display:flex;gap:12px;align-items:center;margin:12px 0;">
   <div style="width:42px;height:42px;border-radius:12px;background:#FFF0F0;display:flex;align-items:center;justify-content:center;
     font-size:22px;flex:0 0 42px;">{STEP_EMOJI[step]}</div>
   <div style="flex:1;min-width:0;">
     <div style="display:flex;justify-content:space-between;"><span style="font-weight:700;color:{NAVY};">{STEP_LABEL[step]}</span>
-      <span style="font-weight:800;color:#E03131;">−{n}</span></div>
+      <span style="font-weight:800;color:#E03131;">{share:.0%}</span></div>
     <div style="height:8px;background:#F4F6FA;border-radius:6px;margin-top:6px;"><div style="width:{width}%;height:8px;
       background:#FF6B6B;border-radius:6px;"></div></div>
-    <div class="rp-muted" style="margin-top:3px;">{n} stuck · ₹{tpv.get(step, 0):,.1f} L expected monthly TPV</div>
+    <div class="rp-muted" style="margin-top:3px;">{n} of {total} pending · ₹{tpv.get(step, 0):,.1f} L expected monthly TPV</div>
   </div></div>""")
-    return (f'<div class="rp-card"><div class="rp-section">📉 Where they drop off</div>{"".join(rows)}'
-            f'<div class="rp-muted" style="margin-top:6px;">Each step loses merchants who stalled or were rejected there.</div></div>')
+    return (f'<div class="rp-card"><div class="rp-section">⏳ Pending by stage</div>{"".join(rows)}'
+            f'<div class="rp-muted" style="margin-top:6px;">Share of the {total} stuck applications (stalled or '
+            f'rejected) waiting at each step.</div></div>')
 
 
 def cause_cards(causes: pd.DataFrame, by: str, title: str, unit: str) -> str:
