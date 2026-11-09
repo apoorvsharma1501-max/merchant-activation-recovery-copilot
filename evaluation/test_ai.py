@@ -1,4 +1,4 @@
-"""AI diagnosis, nudge drafting, safety checks and cache - all with a fake model."""
+﻿"""AI diagnosis, nudge drafting, safety checks and cache - all with a fake model."""
 import pytest
 
 import config
@@ -129,7 +129,7 @@ BRIEF = "Language: English\nWhat to do (approved wording): Re-upload a clear sca
     ("Please visit https://example.com to continue.", "link"),
     ("Upload it at www.example.in please.", "link"),
     ("Call us on 98765 43210.", "phone"),
-    ("Your account will be activated within 2 days.", "numbers not in the brief"),
+    ("Your account will be activated within 2 days.", "numbers not in the approved wording"),
     ("Your account will be activated soon.", "promise"),
     ("This is about code R05.", "internal rejection code"),
 ])

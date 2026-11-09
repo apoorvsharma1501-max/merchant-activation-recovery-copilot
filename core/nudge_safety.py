@@ -1,4 +1,4 @@
-"""Deterministic safety checks on every drafted merchant message.
+﻿"""Deterministic safety checks on every drafted merchant message.
 
 Checks run on the message and on its English back-translation. They catch the
 brief's critical errors (links, promises, invented numbers, compliance leaks,
@@ -71,12 +71,21 @@ def _numbers(text: str) -> set[int]:
 
 
 def _hits(patterns: list[str], text: str, allowed_text: str) -> list[str]:
-    """Patterns found in `text` that are not already present in the approved brief."""
+    """Words in `text` that match a pattern not already present in the approved brief.
+
+    Returns the matched words themselves ("guaranteed", "days") so warnings read in plain language."""
     found = []
     for p in patterns:
-        if re.search(p, text, re.IGNORECASE) and not re.search(p, allowed_text, re.IGNORECASE):
-            found.append(p)
+        m = re.search(p, text, re.IGNORECASE)
+        if m and not re.search(p, allowed_text, re.IGNORECASE):
+            word = f'"{m.group(0).strip()}"'
+            if word not in found:
+                found.append(word)
     return found
+
+
+def _list(items) -> str:
+    return ", ".join(str(i) for i in items)
 
 
 def check(message: str, back_translation: str, language: str, action: RecommendedAction,
@@ -95,25 +104,25 @@ def check(message: str, back_translation: str, language: str, action: Recommende
         issues.append("mentions an internal rejection code")
     extra_numbers = _numbers(both) - _numbers(brief)
     if extra_numbers:
-        issues.append(f"contains numbers not in the brief: {sorted(extra_numbers)}")
+        issues.append(f"contains numbers not in the approved wording: {_list(sorted(extra_numbers))}")
     if len(message) > config.NUDGE_MAX_CHARS:
         issues.append(f"too long ({len(message)} chars)")
 
     promises = _hits(PROMISE_PATTERNS, back_translation, brief)
     if promises:
-        issues.append(f"possible promise or timeline: {promises}")
+        issues.append(f"possible promise or timeline: {_list(promises)}")
     extras = _hits(EXTRA_CONTENT_PATTERNS, back_translation, brief)
     if extras:
-        issues.append(f"adds content not in the brief: {extras}")
+        issues.append(f"adds content not in the brief: {_list(extras)}")
 
     if action is RecommendedAction.COMPLIANCE_ROUTE or sensitive:
         leaks = _hits(COMPLIANCE_LEAK_PATTERNS, back_translation, "")
         if leaks:
-            issues.append(f"possible compliance disclosure: {leaks}")
+            issues.append(f"possible compliance disclosure: {_list(leaks)}")
     if action is RecommendedAction.CLOSE_POLITELY:
         workarounds = _hits(WORKAROUND_PATTERNS, back_translation, "")
         if workarounds:
-            issues.append(f"possible workaround suggested: {workarounds}")
+            issues.append(f"possible workaround suggested: {_list(workarounds)}")
     if action is RecommendedAction.REMINDER_NUDGE and step:
         tokens = [t for t in re.split(r"[^a-z]+", step.lower()) if len(t) >= 3]
         if tokens and not any(t in back_translation.lower() for t in tokens):
