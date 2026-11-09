@@ -47,7 +47,7 @@ Outputs:
 
 ## Prioritisation (prototype heuristic)
 
-Only RECOVERABLE rows are ranked. `priority_score = 0.7 × TPV percentile + 0.3 × (100 − days inactive)`; weights in `config.py`. Tiers: top 25% HIGH, middle 50% MEDIUM, bottom 25% LOW. This orders follow-up work; it is **not** a recovery probability. **In practice TPV dominates:** inactivity only spans 0–40 days here, so recency's component moves far less than TPV's and TPV drives about 86% of the score's variation (`priority_effective_tpv_share` in the executive summary). The `priority_sensitivity` sheet compares TPV-only, recency-only and other weightings (top-10 overlap and rank correlation with the base order).
+Only RECOVERABLE rows are ranked. `priority_score = 0.7 × TPV percentile + 0.3 × (100 − days inactive)`; weights in `config.py`. Tiers: top 25% HIGH, middle 50% MEDIUM, bottom 25% LOW. This orders follow-up work; it is **not** a recovery probability. **In practice TPV dominates:** inactivity only spans 0–40 days here, so recency's component moves far less than TPV's and TPV drives about 86% of the score's variation (`priority_effective_tpv_share` in the executive summary). This is a deliberate choice: business value leads, and recency mainly separates merchants with similar TPV. The `priority_sensitivity` sheet compares TPV-only, recency-only and other weightings (top-10 overlap and rank correlation with the base order).
 
 ## What AI does, and what it does not
 
