@@ -3,6 +3,17 @@
 Razorpay Campus AI Build-a-thon, Problem 3 (onboarding & KYC drop-off recovery).
 Synthetic data only. This is a drafting and decision-support prototype: **it never sends messages**.
 
+## Start here
+
+| | |
+|---|---|
+| **Live app** | **https://razorpay-activation-copilot.streamlit.app**: opens on the results dashboard. Runs on saved AI answers, so no key is needed and every visit shows the same results. |
+| **Output table** | [`outputs/p3_results.xlsx`](outputs/p3_results.xlsx): opens on *Read me first*, then *Decisions* (one row per application). |
+| **Written answers** | [`docs/Written_Answers_Problem3.docx`](docs/Written_Answers_Problem3.docx) |
+| **Evidence** | [`docs/submission_pack.md`](docs/submission_pack.md) (requirement coverage), [`evaluation/results/QA_audit_report.md`](evaluation/results/QA_audit_report.md) (independent audit), [`evaluation/results/stress_report.md`](evaluation/results/stress_report.md) (42 tricky notes) |
+
+**At a glance:** 100 applications; 75 not activated. **67 recoverable**, 5 closed (restricted category, no workaround), 3 routed to Compliance. **Rs 933.9 lakh** expected monthly TPV at stake (declared by merchants; not recovered TPV or revenue). The 17 HIGH-priority cases hold 61% of it. 74 messages drafted in 6 languages for human approval; WhatsApp only with opt-in. Rules decide 71 of 75 cases; AI reads 4 free-text reviewer notes and writes the messages.
+
 ## Status
 
 | Phase | Scope | State |
