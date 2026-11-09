@@ -44,6 +44,65 @@ def journey(counts: dict[str, int], tpv: dict[str, float]) -> str:
     return f'<div class="rp-card"><div style="display:flex;gap:14px;">{"".join(cells)}</div></div>'
 
 
+FUNNEL_STAGE_LABEL = ["Signed up", "Business details done", "KYC documents done", "Bank verified", "Live"]
+FUNNEL_COLORS = ["#2F6BFF", "#4C6EF5", "#7950F2", "#AE3EC9", "#12B886"]
+
+
+def funnel_stages(total: int, stuck_at: dict[str, int]) -> tuple[list[tuple[str, int]], list[tuple[str, int]]]:
+    """Cumulative funnel from 'last step reached', assuming the steps run in order.
+
+    Everyone signs up; each later stage keeps those not stuck at the previous step. Returns the
+    (stage, applicants) list and the (step, merchants stuck there) drop-offs.
+    """
+    stages, drops, remaining = [(FUNNEL_STAGE_LABEL[0], total)], [], total
+    for i, step in enumerate(STEPS[:-1]):
+        stuck = stuck_at.get(step, 0)
+        remaining -= stuck
+        drops.append((step, stuck))
+        stages.append((FUNNEL_STAGE_LABEL[i + 1], remaining))
+    return stages, drops
+
+
+def funnel_figure(stages: list[tuple[str, int]], font_family: str):
+    import plotly.graph_objects as go
+
+    labels = [s for s, _ in stages]
+    values = [n for _, n in stages]
+    fig = go.Figure(go.Funnel(
+        y=labels, x=values, texttemplate="<b>%{value}</b>  ·  %{percentInitial:.0%}", textposition="inside",
+        textfont=dict(color="#FFFFFF", size=16, family=font_family),
+        marker=dict(color=FUNNEL_COLORS[:len(values)]),
+        connector=dict(line=dict(color=LINE, width=1), fillcolor="#EEF2FA"),
+        hovertemplate="%{y}<br>%{x} applicants · %{percentInitial:.0%} of sign-ups"
+                      "<br>%{percentPrevious:.0%} of the previous stage<extra></extra>",
+    ))
+    fig.update_layout(height=360, margin=dict(l=8, r=8, t=8, b=8), paper_bgcolor="rgba(0,0,0,0)",
+                      plot_bgcolor="rgba(0,0,0,0)", font=dict(family=font_family, color=NAVY, size=14),
+                      hoverlabel=dict(bgcolor="#FFFFFF", font_color=NAVY))
+    fig.update_yaxes(tickfont=dict(color=NAVY, size=14, family=font_family))
+    return fig
+
+
+def dropoff_panel(drops: list[tuple[str, int]], tpv: dict[str, float]) -> str:
+    total = sum(n for _, n in drops) or 1
+    rows = []
+    for step, n in sorted(drops, key=lambda d: -d[1]):
+        width = int(100 * n / total)
+        rows.append(f"""
+<div style="display:flex;gap:12px;align-items:center;margin:12px 0;">
+  <div style="width:42px;height:42px;border-radius:12px;background:#FFF0F0;display:flex;align-items:center;justify-content:center;
+    font-size:22px;flex:0 0 42px;">{STEP_EMOJI[step]}</div>
+  <div style="flex:1;min-width:0;">
+    <div style="display:flex;justify-content:space-between;"><span style="font-weight:700;color:{NAVY};">{STEP_LABEL[step]}</span>
+      <span style="font-weight:800;color:#E03131;">−{n}</span></div>
+    <div style="height:8px;background:#F4F6FA;border-radius:6px;margin-top:6px;"><div style="width:{width}%;height:8px;
+      background:#FF6B6B;border-radius:6px;"></div></div>
+    <div class="rp-muted" style="margin-top:3px;">{n} stuck · ₹{tpv.get(step, 0):,.1f} L expected monthly TPV</div>
+  </div></div>""")
+    return (f'<div class="rp-card"><div class="rp-section">📉 Where they drop off</div>{"".join(rows)}'
+            f'<div class="rp-muted" style="margin-top:6px;">Each step loses merchants who stalled or were rejected there.</div></div>')
+
+
 def cause_cards(causes: pd.DataFrame, by: str, title: str, unit: str) -> str:
     rows = causes[causes["is_catalog_cause"]].sort_values([by, "cause_code"], ascending=[False, True]).head(3)
     top = rows[by].max() or 1
@@ -196,5 +255,5 @@ def section(title: str, subtitle: str = "") -> str:
     return f'<div class="rp-section" style="font-size:20px;margin-top:14px;">{title}</div>{sub}'
 
 
-__all__ = ["journey", "cause_cards", "case_header", "tracker", "phone_preview", "fact", "decided_by_chip",
+__all__ = ["journey", "funnel_stages", "funnel_figure", "dropoff_panel", "STEP_LABEL","cause_cards", "case_header", "tracker", "phone_preview", "fact", "decided_by_chip",
            "queue_card", "section", "STEPS", "LINE"]

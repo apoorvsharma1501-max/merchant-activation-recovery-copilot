@@ -197,11 +197,22 @@ with tab_overview:
                 help="Expected monthly TPV at stake: sum of merchants' declared expected monthly TPV for RECOVERABLE "
                      "applications. Not recovered TPV, revenue or a forecast.")
 
-    html(ui.section("Onboarding journey", "Where all 100 applicants are today. KYC documents is the bottleneck."))
     apps = run.data.applications
     counts = apps["step_reached"].value_counts().to_dict()
     tpv_step = pd.to_numeric(res["expected_monthly_tpv_inr_lakh"]).groupby(res["step_reached"]).sum().to_dict()
-    html(ui.journey(counts, tpv_step))
+    stages, drops = ui.funnel_stages(len(apps), counts)
+    worst = max(drops, key=lambda d: d[1]) if drops else None
+    html(ui.section("Onboarding funnel",
+                    f"How far the {len(apps)} applicants got, assuming the steps run in order. "
+                    + (f"The biggest drop is at {ui.STEP_LABEL[worst[0]]}: {worst[1]} merchants." if worst else "")))
+    f_left, f_right = st.columns([1.6, 1])
+    with f_left:
+        st.plotly_chart(ui.funnel_figure(stages, FONT_STACK.replace("'", "")), width="stretch",
+                        config={"displayModeBar": False}, key="funnel")
+        with st.expander("Table view"):
+            st.dataframe(pd.DataFrame(stages, columns=["Stage", "Applicants"]), hide_index=True, width="stretch")
+    with f_right:
+        html(ui.dropoff_panel(drops, tpv_step))
 
     left, right = st.columns(2)
     with left:
