@@ -92,7 +92,7 @@ def hero(non_activated: int, recoverable: int, tpv: float) -> str:
   padding: 26px 30px; color: #FFFFFF; display: flex; gap: 24px; align-items: center; margin-bottom: 18px;">
   <div style="flex: 1.35; min-width: 0;">
     <div style="display:inline-block; background: rgba(255,255,255,0.16); border-radius: 999px; padding: 4px 12px;
-      font-size: 12.5px; font-weight: 600; margin-bottom: 12px;">Built for the Razorpay Campus AI Build-a-thon · not an official Razorpay product</div>
+      font-size: 12.5px; font-weight: 600; margin-bottom: 12px;">💙 Customer success · Every stuck merchant gets a clear next step</div>
     <div style="font-size: 34px; font-weight: 800; line-height: 1.15; margin-bottom: 8px;">Merchant Activation Recovery Copilot</div>
     <div style="font-size: 16px; opacity: 0.92; line-height: 1.55; max-width: 620px;">
       Find out why a merchant is stuck, decide what to do, and send a clear next step in their own language,
