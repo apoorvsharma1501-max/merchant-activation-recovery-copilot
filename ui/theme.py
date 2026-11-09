@@ -20,8 +20,18 @@ TIER = {  # priority tier -> (label, background, text)
     "UNRANKED_REVIEW": ("Not ranked", "#EEF0F4", "#3F4A5E"),
 }
 
+# Century Gothic is a licensed system font (Windows / Office). Questrial is a free Google look-alike used
+# where it is not installed, so every viewer gets the same geometric style.
+FONT_STACK = "'Century Gothic', 'CenturyGothic', 'Questrial', 'AppleGothic', sans-serif"
+
 CSS = f"""
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+html, body, .stApp, .stMarkdown, p, li, label, input, textarea, select, button, h1, h2, h3, h4, h5, h6,
+[data-testid="stMetricValue"], [data-testid="stMetricLabel"], [data-baseweb="tab"], [data-baseweb="select"] *,
+.stApp div:not([data-testid="stIconMaterial"]):not(.material-symbols-rounded),
+.stApp span:not([data-testid="stIconMaterial"]):not(.material-symbols-rounded) {{font-family: {FONT_STACK};}}
+code, pre, kbd {{font-family: 'Consolas', 'Courier New', monospace !important;}}
 .block-container {{padding-top: 1.2rem; max-width: 1280px;}}
 h1, h2, h3 {{color: {NAVY}; letter-spacing: -0.01em;}}
 [data-testid="stSidebar"] {{background: #FFFFFF; border-right: 1px solid {LINE};}}

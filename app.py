@@ -21,7 +21,7 @@ from core.output_builder import write_outputs
 from schemas.labels import RecommendedAction
 from ui import components as ui
 from ui.avatars import INDUSTRY_BADGE
-from ui.theme import BLUE, CSS, INK2, LINE, MUTED, NAVY, STATUS, hero
+from ui.theme import BLUE, CSS, FONT_STACK, INK2, LINE, MUTED, NAVY, STATUS, hero
 
 load_dotenv(config.ROOT / ".env")
 st.set_page_config(page_title="Activation Recovery Copilot", page_icon="🚀", layout="wide")
@@ -58,7 +58,8 @@ def hbar(labels, values, hover_name: str, value_fmt: str = "{:g}", colors=None) 
     ))
     fig.update_layout(height=max(170, 48 * len(labels) + 40), margin=dict(l=8, r=56, t=8, b=8),
                       paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)", showlegend=False,
-                      font=dict(color=INK2, size=13), hoverlabel=dict(bgcolor="#FFFFFF", font_color=NAVY))
+                      font=dict(color=INK2, size=13, family=FONT_STACK.replace("'", "")),
+                      hoverlabel=dict(bgcolor="#FFFFFF", font_color=NAVY))
     fig.update_xaxes(showgrid=True, gridcolor=LINE, zeroline=True, zerolinecolor=LINE, tickfont=dict(color=MUTED))
     fig.update_yaxes(autorange="reversed", showgrid=False, tickfont=dict(color=NAVY))
     return fig
