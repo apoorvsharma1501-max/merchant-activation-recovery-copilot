@@ -302,8 +302,11 @@ def test_full_workbook_with_fake_ai(real_data, tmp_path):
     assert a3051["diagnosed_reason_code"] == "R10"
     assert a3051["recoverability"] == "NOT_RECOVERABLE_CLOSE"
     assert bool(a3051["human_review_required"]) and a3051["nudge_status"] == "NO_NUDGE_HUMAN_REVIEW"
+    assert a3051["whatsapp_allowed"] and a3051["recommended_channel"] == "Not applicable"  # opted in, but withheld
     assert s["recoverable"] == 67 and s["not_recoverable_close"] == 5 and s["compliance_review"] == 3
     assert s["needs_human_review"] == 0
     assert not ((res["recommended_channel"] == "WhatsApp") & ~res["whatsapp_allowed"]).any()
     drafted = res[res["nudge_status"].isin(["DRAFTED", "NEUTRAL_COMPLIANCE"])]
     assert drafted["nudge_safety_check_passed"].all()
+    withheld = res[res["nudge_status"] == "NO_NUDGE_HUMAN_REVIEW"]
+    assert (withheld["recommended_channel"] == "Not applicable").all()

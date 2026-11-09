@@ -67,6 +67,9 @@ def build_results(data: LoadedData, llm: CachedLLM | None = None,
         entry = data.catalog.get(dx.code)
         language, lang_status = rules.language_for(row["preferred_language"])
         channel = rules.select_channel(bool(row["whatsapp_allowed"]), dec.recoverability)
+        if nudge_generator.should_withhold(dx, dec):
+            # No message may go out until a person confirms, so no outreach channel either.
+            channel = config.CHANNEL_NOT_APPLICABLE
         nudge = nudge_generator.generate(row, dx, dec, entry, llm)
 
         if dx.sensitive and dec.human_review:

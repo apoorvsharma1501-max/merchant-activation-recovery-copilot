@@ -280,3 +280,14 @@ Caveats: TPV is self-declared and is not revenue. In 21 rows the inactivity valu
 6. **Write the failure log, written answers and video script** from this report, the stress report and your label results (P0-4). Then commit and submit.
 
 *Audit scripts and raw outputs are kept outside the repository and can be re-run; they are not part of the submission.*
+
+---
+
+## Post-audit changes (the audit findings above are unchanged; they describe commit `0716b5d`)
+
+| Item | Status | Detail |
+|---|---|---|
+| P0-1 Commit evaluation files | **Done** (`7eddd1e`) | Stress test, its saved answers, labelling tool, this report |
+| P0-3 / E04 Withheld case showed WhatsApp | **Fixed** | `core/output_builder.py`: when `nudge_generator.should_withhold()` is true, channel = "Not applicable". This also covers AI-uncertain cases, not only A3051. A draft that merely *failed a safety check* keeps its channel, because the case is still actionable after a person rewrites it. Outputs regenerated from saved answers (0 API calls); diff vs previous output: **only** A3051 `recommended_channel` WhatsApp → Not applicable. Test added in `evaluation/test_ai.py`. Blank labelling sheet rebuilt (it had 0 filled cells). |
+| P0-2 Human labelling of 30 cases | Open (student) | Sheet ready |
+| P0-4 Failure log, written answers, video | Open | — |
